@@ -89,7 +89,9 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 40px; /* Reduced from 50px */
+            width: auto;
+            max-width: 100%;
         }
 
         .nav-links {
@@ -158,26 +160,26 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem; /* Reduced from 4rem */
             margin-bottom: 20px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Reduced from 1.5rem */
             margin-bottom: 40px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         /* Page Sections */
         .page-section {
-            padding: 100px 5%;
+            padding: 80px 5%; /* Reduced from 100px */
             text-align: center;
         }
 
         .page-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.2rem; /* Reduced from 2.5rem */
+            margin-bottom: 40px; /* Reduced from 50px */
             position: relative;
         }
 
@@ -200,249 +202,72 @@
 
         .page-content p {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Reduced from 1.1rem */
             line-height: 1.8;
         }
 
-        /* Volunteer Form */
-        .volunteer-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group textarea {
-            height: 120px;
-        }
-
         /* Blog Section */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .blog-post {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .blog-post img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .blog-post-content {
-            padding: 20px;
-        }
-
-        .blog-post h3 {
-            margin-bottom: 10px;
-        }
-
-        .blog-post .date {
-            color: #777;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            display: block;
+        .blog-section {
+            text-align: center;
+            padding: 60px 5%;
         }
 
         /* Newsletter Section */
         .newsletter {
-            padding: 80px 5%;
+            padding: 60px 5%; /* Reduced from 80px */
             background: var(--primary-color);
             color: var(--light-text);
             text-align: center;
         }
 
         .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem; /* Reduced from 2rem */
+            margin-bottom: 20px; /* Reduced from 30px */
         }
 
         .newsletter p {
             max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 30px 0 0 30px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            padding: 15px 25px;
-            border-radius: 0 30px 30px 0;
-            border: none;
-            background: var(--accent-color);
-            color: var(--text-color);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background: #d8b28f;
+            margin: 0 auto 20px; /* Reduced from 30px */
+            font-size: 1rem; /* Reduced from 1.1rem */
         }
 
         /* Footer */
         footer {
             background: var(--secondary-color);
             color: var(--light-text);
-            padding: 50px 5% 30px;
+            padding: 40px 5% 20px; /* Reduced padding */
             text-align: center;
         }
 
         .footer-logo img {
-            height: 60px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        .footer-links li {
-            margin: 0 15px;
-        }
-
-        .footer-links a {
-            color: var(--light-text);
-        }
-
-        .social-links {
-            margin: 30px 0;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 15px;
-            font-size: 1.5rem;
-            color: var(--light-text);
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
+            height: 50px; /* Reduced from 60px */
+            width: auto;
+            max-width: 100%;
+            margin-bottom: 15px; /* Reduced from 20px */
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 50px;
-            }
-        }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--light-text);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .burger {
-                display: block;
-            }
-            
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem; /* Reduced from 3rem */
             }
             
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem; /* Reduced from 1.2rem */
+            }
+            
+            .page-section h2 {
+                font-size: 1.8rem; /* Reduced from 2.5rem */
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem; /* Reduced from 2.5rem */
             }
             
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input {
-                border-radius: 30px;
-                margin-bottom: 10px;
-            }
-            
-            .newsletter-form button {
-                border-radius: 30px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-            }
-            
-            .footer-links li {
-                margin: 10px 0;
+            .logo img {
+                height: 35px; /* Smaller logo for mobile */
             }
         }
     </style>
@@ -461,7 +286,7 @@
             <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
             <li><a href="#volunteer">Volunteer</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
         <div class="burger">
             <i class="fas fa-bars"></i>
@@ -554,7 +379,7 @@
             <div class="page-content">
                 <p>We'd love to hear from you! Whether you have questions about our products, want to visit the farm, or are interested in collaborating, please reach out.</p>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
                     <div>
                         <h3>Visit Us</h3>
                         <p>123 Farm Road<br>
@@ -575,7 +400,7 @@
                     </div>
                 </div>
                 
-                <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                     <h3>Send Us a Message</h3>
                     <form id="contactForm">
                         <div class="form-group">
@@ -605,42 +430,9 @@
     <section id="blog" class="page-section">
         <div class="container">
             <h2>Farm Blog</h2>
-            <div class="page-content">
-                <p>Stay updated with farm news, seasonal tips, and stories from our fields.</p>
-                
-                <div class="blog-posts">
-                    <div class="blog-post">
-                        <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651" alt="Spring Planting">
-                        <div class="blog-post-content">
-                            <span class="date">May 15, 2024</span>
-                            <h3>Spring Planting Guide</h3>
-                            <p>Learn what we're planting this season and tips for your own garden...</p>
-                            <a href="#" class="btn">Read More</a>
-                        </div>
-                    </div>
-                    <div class="blog-post">
-                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae" alt="Flower Arranging">
-                        <div class="blog-post-content">
-                            <span class="date">April 28, 2024</span>
-                            <h3>Flower Arranging Workshop Recap</h3>
-                            <p>Highlights from our popular flower arranging workshop...</p>
-                            <a href="#" class="btn">Read More</a>
-                        </div>
-                    </div>
-                    <div class="blog-post">
-                        <img src="https://images.unsplash.com/photo-1504198266287-1659872e6590" alt="Sustainability">
-                        <div class="blog-post-content">
-                            <span class="date">March 10, 2024</span>
-                            <h3>Our Sustainable Farming Practices</h3>
-                            <p>How we're working to regenerate the land and support pollinators...</p>
-                            <a href="#" class="btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="#" class="btn">View All Blog Posts</a>
-                </div>
+            <div class="page-content" style="text-align: center;">
+                <p>Read about our farm news, seasonal tips, and stories from our fields.</p>
+                <a href="blog.html" class="btn">View Our Blog</a>
             </div>
         </div>
     </section>
@@ -670,7 +462,7 @@
                 <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
                 <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
             <div class="social-links">
                 <a href="https://www.instagram.com/otteroaksfarm" target="_blank"><i class="fab fa-instagram"></i></a>
