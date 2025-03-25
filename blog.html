@@ -23,34 +23,40 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--bg-color);
-            padding-top: 100px; /* Adjusted for fixed header */
+            padding-top: 140px; /* Adjusted for larger header */
         }
 
-        /* Navigation - Updated for horizontal layout */
+        /* Navigation - Perfectly matched to index page */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background: var(--light-text);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 10px 5%;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             width: 100%;
             z-index: 1000;
-            transition: transform 0.3s ease-in-out;
+            transition: all 0.3s ease;
         }
         
         nav.hide {
             transform: translateY(-100%);
+            box-shadow: none;
         }
 
         .logo img {
-            height: 40px;
+            height: 80px;
             width: auto;
             max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -58,28 +64,37 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 25px; /* Space between navigation items */
+            gap: 30px;
+            align-items: center;
         }
 
         .nav-links li {
-            margin: 0; /* Remove individual margins */
+            margin: 0;
+            position: relative;
         }
 
         .nav-links a {
+            font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            font-size: 1.1rem;
-            white-space: nowrap; /* Prevent text wrapping */
-            position: relative;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            white-space: nowrap;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
         }
 
         .nav-links a:after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -5px;
+            height: 3px;
+            bottom: 5px;
             left: 0;
-            background-color: var(--primary-color);
+            background-color: var(--accent-color);
             transition: width 0.3s;
         }
 
@@ -90,20 +105,33 @@
         .burger {
             display: none;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-left: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .burger:hover {
+            transform: scale(1.1);
         }
 
         /* Blog Content */
         .page-section {
-            padding: 40px 5% 80px;
+            padding: 60px 5% 80px;
         }
 
         .blog-post-full {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 50px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 60px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post-full:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         .blog-post-full img {
@@ -112,36 +140,83 @@
             height: auto;
             max-height: 500px;
             border-radius: 10px;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             display: block;
             object-fit: cover;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
         }
 
         .date {
             color: #777;
             font-size: 0.9rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons - Matched to index page */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--light-text);
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
-                padding-top: 90px;
+                padding-top: 110px;
+            }
+            
+            .logo img {
+                height: 65px;
             }
             
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 110px;
                 left: 0;
                 width: 100%;
-                background: var(--light-text);
+                background: white;
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 30px 0;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
                 display: none;
-                gap: 15px;
+                gap: 25px;
             }
             
             .nav-links.active {
@@ -151,11 +226,35 @@
             .burger {
                 display: block;
             }
+            
+            .page-section {
+                padding: 40px 5% 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo img {
+                height: 55px;
+            }
+            
+            body {
+                padding-top: 100px;
+            }
+            
+            .nav-links {
+                top: 100px;
+                padding: 25px 0;
+                gap: 20px;
+            }
+            
+            .blog-post-full {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar - Perfectly matched to index page -->
     <nav id="mainNav">
         <div class="logo">
             <a href="index.html">
@@ -194,6 +293,7 @@
                         <li>Mid-spring: Zinnias, cosmos, and sunflowers</li>
                         <li>Late spring: Dahlias and specialty cut flowers</li>
                     </ul>
+                    <p>We're also experimenting with no-till methods in our new growing beds to improve soil health and reduce erosion. The early results are promising, with better water retention and increased earthworm activity.</p>
                 </article>
                 
                 <!-- Blog Post 2 -->
@@ -205,48 +305,70 @@
                     <p>Highlights from the workshop:</p>
                     <ul>
                         <li>Demonstration of spiral bouquet technique</li>
-                        <li>Tips for extending vase life of cut flowers</li>
-                        <li>Creating texture with different foliage types</li>
+                        <li>Tips for proper cutting to extend vase life</li>
+                        <li>Creating focal points in arrangements</li>
+                        <li>Using foliage for texture and volume</li>
                     </ul>
+                    <p>We'll be hosting another workshop on June 15th focusing on summer garden arrangements. Registration opens May 15th for our newsletter subscribers.</p>
+                    <a href="index.html#contact" class="btn" style="margin-top: 20px;">Sign Up for Updates</a>
                 </article>
             </div>
         </div>
     </section>
 
     <script>
-        // Hide header on scroll down, show on scroll up
-        let lastScroll = 0;
+        // Enhanced Header Behavior
         const navbar = document.getElementById('mainNav');
+        let lastScroll = 0;
         const scrollThreshold = 100;
+        let ticking = false;
         
         window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= scrollThreshold) {
-                navbar.classList.remove('hide');
-                return;
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const currentScroll = window.pageYOffset;
+                    
+                    if (currentScroll <= scrollThreshold) {
+                        navbar.classList.remove('hide');
+                    } else if (currentScroll > lastScroll) {
+                        navbar.classList.add('hide');
+                    } else {
+                        navbar.classList.remove('hide');
+                    }
+                    
+                    lastScroll = currentScroll;
+                    ticking = false;
+                });
+                ticking = true;
             }
-            
-            if (currentScroll > lastScroll && !navbar.classList.contains('hide')) {
-                navbar.classList.add('hide');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('hide')) {
-                navbar.classList.remove('hide');
-            }
-            
-            lastScroll = currentScroll;
         });
 
-        // Mobile Menu Toggle
-        document.querySelector('.burger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        // Mobile Menu Functionality
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        burger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
             this.classList.toggle('fa-times');
+            this.classList.toggle('fa-bars');
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.burger').classList.remove('fa-times');
+                navLinks.classList.remove('active');
+                burger.classList.remove('fa-times');
+                burger.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
