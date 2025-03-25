@@ -3,25 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Otter Oaks Farm</title>
+    <title>Farm Blog | Otter Oaks Farm</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .blog-post-expanded img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .blog-post img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+            .blog-post-expanded img { max-height: 250px; }
+            .blog-post img { height: 150px; }
+        }
+        @media (max-width: 480px) {
+            .blog-post-expanded img { max-height: 200px; }
+            .blog-post img { height: 120px; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Otter Oaks Farm Logo">
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="blog.html" class="current">Blog</a></li>
-            <!-- Other nav items -->
         </ul>
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
 
-    <main class="page-content">
-        <section class="page-section">
-            <div class="container">
-                <h1>Farm Blog</h1>
-                <!-- Move your full blog content here -->
+    <section class="page-section">
+        <div class="container">
+            <h1>Farm Blog</h1>
+            <div class="page-content">
+                <p>Stay updated with farm news, seasonal tips, and stories from our fields.</p>
+                
+                <!-- Current Blog Posts (Newest First) -->
+                <div class="blog-post-expanded active" id="summer-harvest">
+                    <img src="images/blog/summer-harvest.jpg" alt="Summer flowers blooming">
+                    <div class="blog-post-expanded-content">
+                        <span class="date">June 15, 2024</span>
+                        <h2>Summer Harvest Begins</h2>
+                        <p>Our fields are bursting with color as we begin our summer harvest season!</p>
+                        <h3>What's Blooming Now</h3>
+                        <p>This week we're harvesting:</p>
+                        <ul>
+                            <li>Sunflowers (three varieties)</li>
+                            <li>Zinnias in rainbow colors</li>
+                            <li>The first dahlias of the season</li>
+                            <li>Delicate cosmos</li>
+                        </ul>
+                        <h3>Harvest Schedule</h3>
+                        <p>We harvest every Monday, Wednesday, and Friday morning to ensure the freshest flowers for our customers.</p>
+                    </div>
+                </div>
+                
+                <div class="blog-post-expanded" id="spring-planting">
+                    <img src="images/blog/spring-planting.jpg" alt="Spring planting in progress">
+                    <div class="blog-post-expanded-content">
+                        <span class="date">May 15, 2024</span>
+                        <h2>Spring Planting Guide</h2>
+                        <p>As we welcome warmer weather, here's what we're planting this season.</p>
+                        <h3>Our Spring Selections</h3>
+                        <ul>
+                            <li><strong>Cut flowers:</strong> Snapdragons, larkspur, and sweet peas</li>
+                            <li><strong>Herbs:</strong> Basil, dill, and cilantro</li>
+                            <li><strong>Perennials:</strong> Echinacea and lavender</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Blog Post Navigation -->
+                <div class="blog-navigation">
+                    <h3>More Blog Posts:</h3>
+                    
+                    <div class="blog-preview" onclick="showPost('summer-harvest')">
+                        <div class="blog-post">
+                            <img src="images/blog/summer-thumb.jpg" alt="Summer flowers">
+                            <div class="blog-post-content">
+                                <span class="date">June 15, 2024</span>
+                                <h3>Summer Harvest Begins</h3>
+                                <p>See what's blooming in our fields...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-preview" onclick="showPost('spring-planting')">
+                        <div class="blog-post">
+                            <img src="images/blog/spring-thumb.jpg" alt="Spring planting">
+                            <div class="blog-post-content">
+                                <span class="date">May 15, 2024</span>
+                                <h3>Spring Planting Guide</h3>
+                                <p>What we're growing this season...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay in the Know</h2>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/logo-footer.png" alt="Otter Oaks Farm Logo">
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.instagram.com/otteroaksfarm"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:hello@otteroaksfarm.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2024 Otter Oaks Farm</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.burger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('fa-times');
+        });
+
+        // Blog Post Navigation
+        function showPost(postId) {
+            document.querySelectorAll('.blog-post-expanded').forEach(post => {
+                post.classList.remove('active');
+            });
+            document.getElementById(postId).classList.add('active');
+            document.getElementById(postId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Show first post by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showPost('summer-harvest');
+        });
+    </script>
 </body>
 </html>
