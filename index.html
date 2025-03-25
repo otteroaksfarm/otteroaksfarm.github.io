@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otter Oaks Farm | Home</title>
+    <title>Otter Oaks Farm | Illinois Flower Farm & Event Venue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Keep your existing head content -->
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
-        <!-- Update nav with current page class -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Otter Oaks Farm Logo">
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html" class="current">Home</a></li>
             <li><a href="story.html">Our Story</a></li>
@@ -18,26 +24,52 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="blog.html">Blog</a></li>
         </ul>
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
 
-    <!-- Keep only the hero section and maybe a brief intro -->
+    <!-- Hero Section -->
     <section class="hero">
-        <!-- Your hero content -->
-    </section>
-
-    <!-- Add a brief preview of other sections -->
-    <section class="preview-section">
-        <h2>Welcome to Otter Oaks Farm</h2>
-        <div class="preview-grid">
-            <div class="preview-card">
-                <h3>Our Story</h3>
-                <p>Learn about our farm's history and mission...</p>
-                <a href="story.html" class="btn">Read More</a>
-            </div>
-            <!-- Add preview cards for other sections -->
+        <div class="hero-content">
+            <h1>Otter Oaks Farm</h1>
+            <p>Cultivating peace, love, unity & respect</p>
+            <a href="story.html" class="btn">Our Story</a>
         </div>
     </section>
 
-    <!-- Rest of your home page content -->
+    <!-- Preview Sections -->
+    <section class="about-preview">
+        <div class="container">
+            <h2>Welcome to Our Farm</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Our Story</h3>
+                    <p>Discover our farm's history and sustainable practices</p>
+                    <a href="story.html" class="btn-outline">Learn More</a>
+                </div>
+                <div class="preview-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Volunteer</h3>
+                    <p>Join our community of farm volunteers</p>
+                    <a href="volunteer.html" class="btn-outline">Get Involved</a>
+                </div>
+                <div class="preview-card">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>Blog</h3>
+                    <p>Latest updates from our fields</p>
+                    <a href="blog.html" class="btn-outline">Read Posts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter (same as original) -->
+    <section class="newsletter">
+        <!-- Original newsletter code -->
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
