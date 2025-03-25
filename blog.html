@@ -42,6 +42,10 @@
             z-index: 1000;
         }
 
+        .logo {
+            flex: 1;
+        }
+
         .logo img {
             height: 60px;
             width: auto;
@@ -57,8 +61,10 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
+            justify-content: center;
+            flex: 3;
         }
 
         .nav-links li {
@@ -95,6 +101,12 @@
 
         .nav-links a:hover:after {
             width: 100%;
+        }
+
+        .nav-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .burger {
@@ -181,7 +193,7 @@
         /* Responsive Design */
         @media (max-width: 992px) {
             .nav-links {
-                gap: 15px;
+                gap: 20px;
             }
             .nav-links a {
                 font-size: 1rem;
@@ -257,8 +269,10 @@
             <li><a href="index.html#contact">Contact</a></li>
             <li><a href="blog.html">Blog</a></li>
         </ul>
-        <div class="burger">
-            <i class="fas fa-bars"></i>
+        <div class="nav-right">
+            <div class="burger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
