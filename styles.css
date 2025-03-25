@@ -1,16 +1,38 @@
-/* Add to your existing CSS */
-.current {
-    font-weight: bold;
-    color: var(--secondary-color);
+/* Original colors and styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--bg-color);
 }
 
-.current:after {
-    width: 100% !important;
+/* Original navigation styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--light-text);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 90%;
+    z-index: 100;
 }
 
-.preview-section {
-    padding: 80px 5%;
+/* Original hero section */
+.hero {
+    height: 100vh;
+    background: url('images/hero-bg.jpg') no-repeat center/cover;
+    /* Rest of original hero styles */
+}
+
+/* New preview sections with original styling */
+.about-preview {
+    padding: 100px 5%;
     text-align: center;
+    background: white;
 }
 
 .preview-grid {
@@ -21,13 +43,36 @@
 }
 
 .preview-card {
-    background: white;
-    padding: 30px;
+    background: var(--bg-color);
+    padding: 40px 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s;
 }
 
 .preview-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.preview-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Current page indicator */
+.current {
+    font-weight: 600;
+    position: relative;
+}
+
+.current:after {
+    content: '';
+    position: absolute;
+    width: 100% !important;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
 }
