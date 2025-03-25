@@ -23,10 +23,10 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--bg-color);
-            padding-top: 100px; /* Adjusted for header */
+            padding-top: 100px;
         }
 
-        /* Navigation - Matched to index page */
+        /* Navigation - Perfectly matched to index page */
         nav {
             display: flex;
             justify-content: space-between;
@@ -57,7 +57,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -102,11 +102,14 @@
             cursor: pointer;
             font-size: 1.8rem;
             color: var(--primary-color);
+            margin-left: 20px;
         }
 
         /* Blog Content */
         .page-section {
             padding: 60px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .blog-post-full {
@@ -115,16 +118,24 @@
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             margin-bottom: 60px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post-full:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         .blog-post-full img {
             width: 100%;
             max-width: 800px;
             height: auto;
+            max-height: 500px;
             border-radius: 10px;
             margin: 0 auto 25px;
             display: block;
             object-fit: cover;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
         }
 
         .date {
@@ -145,11 +156,15 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            text-align: center;
         }
 
         .btn:hover {
             background: var(--secondary-color);
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .btn-outline {
@@ -164,6 +179,15 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 15px;
+            }
+            .nav-links a {
+                font-size: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding-top: 90px;
@@ -176,6 +200,7 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
+                align-items: center;
                 padding: 20px 0;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.1);
                 display: none;
@@ -193,6 +218,10 @@
             .logo img {
                 height: 50px;
             }
+            
+            .page-section {
+                padding: 40px 5% 60px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -202,6 +231,8 @@
             
             .nav-links {
                 top: 80px;
+                padding: 15px 0;
+                gap: 10px;
             }
             
             .blog-post-full {
@@ -243,13 +274,14 @@
                     <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651" alt="Spring Planting">
                     <span class="date">May 15, 2024</span>
                     <h2>Spring Planting Guide</h2>
-                    <p>Welcome to our spring planting season! This year we're focusing on expanding our native flower varieties and implementing new sustainable growing techniques.</p>
+                    <p>Welcome to our spring planting season! This year we're focusing on expanding our native flower varieties and implementing new sustainable growing techniques. The mild winter has given us a head start, and we're excited to share our progress with you.</p>
                     <p>Our planting schedule this year includes:</p>
                     <ul>
                         <li>Early spring: Peonies, ranunculus, and anemones</li>
                         <li>Mid-spring: Zinnias, cosmos, and sunflowers</li>
                         <li>Late spring: Dahlias and specialty cut flowers</li>
                     </ul>
+                    <p>We're also experimenting with no-till methods in our new growing beds to improve soil health and reduce erosion. The early results are promising, with better water retention and increased earthworm activity.</p>
                 </article>
                 
                 <!-- Blog Post 2 -->
@@ -257,13 +289,15 @@
                     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae" alt="Flower Arranging">
                     <span class="date">April 28, 2024</span>
                     <h2>Flower Arranging Workshop Recap</h2>
-                    <p>Our April flower arranging workshop was our most successful yet, with 25 participants learning to create beautiful spring bouquets.</p>
+                    <p>Our April flower arranging workshop was our most successful yet, with 25 participants learning to create beautiful spring bouquets. We used a mix of early blooms from our fields, including tulips, daffodils, and flowering branches.</p>
                     <p>Highlights from the workshop:</p>
                     <ul>
                         <li>Demonstration of spiral bouquet technique</li>
                         <li>Tips for proper cutting to extend vase life</li>
                         <li>Creating focal points in arrangements</li>
+                        <li>Using foliage for texture and volume</li>
                     </ul>
+                    <p>We'll be hosting another workshop on June 15th focusing on summer garden arrangements. Registration opens May 15th for our newsletter subscribers.</p>
                     <a href="index.html#contact" class="btn" style="margin-top: 20px;">Sign Up for Updates</a>
                 </article>
             </div>
@@ -285,6 +319,16 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 burger.classList.remove('fa-times');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
