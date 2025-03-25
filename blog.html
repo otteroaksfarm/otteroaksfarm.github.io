@@ -23,15 +23,15 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--bg-color);
-            padding-top: 140px; /* Adjusted for larger header */
+            padding-top: 100px; /* Adjusted for header */
         }
 
-        /* Navigation - Perfectly matched to index page */
+        /* Navigation - Matched to index page */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
+            padding: 15px 5%;
             background: white;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: fixed;
@@ -40,18 +40,11 @@
             right: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav.hide {
-            transform: translateY(-100%);
-            box-shadow: none;
         }
 
         .logo img {
-            height: 80px;
+            height: 60px;
             width: auto;
-            max-width: 100%;
             transition: transform 0.3s ease;
         }
 
@@ -59,33 +52,56 @@
             transform: scale(1.05);
         }
 
-        .nav-links a {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    white-space: nowrap;
-    padding: 10px 0;
-    transition: all 0.3s ease;
-    text-decoration: none; /* This removes the underline */
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+            align-items: center;
+        }
 
-.nav-links a:hover {
-    color: var(--secondary-color);
-    text-decoration: underline; /* This adds underline on hover */
-}
+        .nav-links li {
+            margin: 0;
+            position: relative;
+        }
+
+        .nav-links a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
 
         .burger {
             display: none;
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary-color);
-            margin-left: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .burger:hover {
-            transform: scale(1.1);
         }
 
         /* Blog Content */
@@ -99,24 +115,16 @@
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             margin-bottom: 60px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .blog-post-full:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         .blog-post-full img {
             width: 100%;
             max-width: 800px;
             height: auto;
-            max-height: 500px;
             border-radius: 10px;
             margin: 0 auto 25px;
             display: block;
             object-fit: cover;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
         }
 
         .date {
@@ -126,7 +134,7 @@
             margin-bottom: 15px;
         }
 
-        /* Buttons - Matched to index page */
+        /* Buttons */
         .btn {
             display: inline-block;
             background: var(--primary-color);
@@ -137,15 +145,11 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            text-align: center;
         }
 
         .btn:hover {
             background: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .btn-outline {
@@ -160,36 +164,22 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 20px;
-            }
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-        }
-
         @media (max-width: 768px) {
             body {
-                padding-top: 110px;
-            }
-            
-            .logo img {
-                height: 65px;
+                padding-top: 90px;
             }
             
             .nav-links {
                 position: fixed;
-                top: 110px;
+                top: 90px;
                 left: 0;
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
+                padding: 20px 0;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.1);
                 display: none;
-                gap: 25px;
+                gap: 15px;
             }
             
             .nav-links.active {
@@ -200,24 +190,18 @@
                 display: block;
             }
             
-            .page-section {
-                padding: 40px 5% 60px;
+            .logo img {
+                height: 50px;
             }
         }
 
         @media (max-width: 480px) {
-            .logo img {
-                height: 55px;
-            }
-            
             body {
-                padding-top: 100px;
+                padding-top: 80px;
             }
             
             .nav-links {
-                top: 100px;
-                padding: 25px 0;
-                gap: 20px;
+                top: 80px;
             }
             
             .blog-post-full {
@@ -227,8 +211,8 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Perfectly matched to index page -->
-    <nav id="mainNav">
+    <!-- Navigation Bar -->
+    <nav>
         <div class="logo">
             <a href="index.html">
                 <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=1500w" alt="Otter Oaks Farm Logo">
@@ -259,14 +243,13 @@
                     <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651" alt="Spring Planting">
                     <span class="date">May 15, 2024</span>
                     <h2>Spring Planting Guide</h2>
-                    <p>Welcome to our spring planting season! This year we're focusing on expanding our native flower varieties and implementing new sustainable growing techniques. The mild winter has given us a head start, and we're excited to share our progress with you.</p>
+                    <p>Welcome to our spring planting season! This year we're focusing on expanding our native flower varieties and implementing new sustainable growing techniques.</p>
                     <p>Our planting schedule this year includes:</p>
                     <ul>
                         <li>Early spring: Peonies, ranunculus, and anemones</li>
                         <li>Mid-spring: Zinnias, cosmos, and sunflowers</li>
                         <li>Late spring: Dahlias and specialty cut flowers</li>
                     </ul>
-                    <p>We're also experimenting with no-till methods in our new growing beds to improve soil health and reduce erosion. The early results are promising, with better water retention and increased earthworm activity.</p>
                 </article>
                 
                 <!-- Blog Post 2 -->
@@ -274,15 +257,13 @@
                     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae" alt="Flower Arranging">
                     <span class="date">April 28, 2024</span>
                     <h2>Flower Arranging Workshop Recap</h2>
-                    <p>Our April flower arranging workshop was our most successful yet, with 25 participants learning to create beautiful spring bouquets. We used a mix of early blooms from our fields, including tulips, daffodils, and flowering branches.</p>
+                    <p>Our April flower arranging workshop was our most successful yet, with 25 participants learning to create beautiful spring bouquets.</p>
                     <p>Highlights from the workshop:</p>
                     <ul>
                         <li>Demonstration of spiral bouquet technique</li>
                         <li>Tips for proper cutting to extend vase life</li>
                         <li>Creating focal points in arrangements</li>
-                        <li>Using foliage for texture and volume</li>
                     </ul>
-                    <p>We'll be hosting another workshop on June 15th focusing on summer garden arrangements. Registration opens May 15th for our newsletter subscribers.</p>
                     <a href="index.html#contact" class="btn" style="margin-top: 20px;">Sign Up for Updates</a>
                 </article>
             </div>
@@ -290,40 +271,13 @@
     </section>
 
     <script>
-        // Enhanced Header Behavior
-        const navbar = document.getElementById('mainNav');
-        let lastScroll = 0;
-        const scrollThreshold = 100;
-        let ticking = false;
-        
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const currentScroll = window.pageYOffset;
-                    
-                    if (currentScroll <= scrollThreshold) {
-                        navbar.classList.remove('hide');
-                    } else if (currentScroll > lastScroll) {
-                        navbar.classList.add('hide');
-                    } else {
-                        navbar.classList.remove('hide');
-                    }
-                    
-                    lastScroll = currentScroll;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-
-        // Mobile Menu Functionality
+        // Mobile Menu Toggle
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
         
         burger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
             this.classList.toggle('fa-times');
-            this.classList.toggle('fa-bars');
         });
 
         // Close mobile menu when clicking a link
@@ -331,17 +285,6 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 burger.classList.remove('fa-times');
-                burger.classList.add('fa-bars');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
