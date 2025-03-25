@@ -3,23 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otter Oaks Farm | Organic Farm in [Your Location]</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Otter Oaks Farm | Illinois Flower Farm & Event Venue</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #3a6548;
+            --accent-color: #e8c4a2;
+            --text-color: #333;
+            --light-text: #fff;
+            --bg-color: #f8f8f8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: var(--light-text);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 90%;
+            z-index: 100;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/a563dcda-1e52-44d3-af05-0dc0c5f9717f/IMG_9860.jpeg') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .about h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CSA Section */
+        .csa {
+            padding: 100px 5%;
+            background: var(--light-text);
+            text-align: center;
+        }
+
+        .csa h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .csa h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+        }
+
+        .csa-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .csa-content p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .csa-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 30px;
+            background: var(--bg-color);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 80px 5%;
+            background: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 15px 25px;
+            border-radius: 0 30px 30px 0;
+            border: none;
+            background: var(--accent-color);
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #d8b28f;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 50px 5% 30px;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--light-text);
+        }
+
+        .social-links {
+            margin: 30px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            color: var(--light-text);
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--light-text);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .burger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="logo">
             <a href="/">
-                <img src="images/logo.png" alt="Otter Oaks Farm Logo">
+                <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=1500w" alt="Otter Oaks Farm Logo">
             </a>
         </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">Our Farm</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#visit">Visit Us</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#csa">CSA</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="burger">
@@ -30,89 +473,128 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Welcome to Otter Oaks Farm</h1>
-            <p>Sustainable Farming in [Your Location]</p>
-            <a href="#visit" class="btn">Plan Your Visit</a>
+            <h1>Otter Oaks Farm</h1>
+            <p>Cultivating peace, love, unity & respect</p>
+            <a href="#csa" class="btn">Learn About Our CSA</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-        <h2>Our Farm Story</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>We are a family-owned farm dedicated to organic and regenerative agriculture. Our mission is to provide fresh, healthy food while caring for the land.</p>
-                <p>Located in [Your Location], we raise pastured animals and grow seasonal produce.</p>
-            </div>
-            <div class="about-image">
-                <img src="images/farm-photo.jpg" alt="Otter Oaks Farm">
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <h2>Our Farm Products</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="images/eggs.jpg" alt="Pasture-Raised Eggs">
-                <h3>Pasture-Raised Eggs</h3>
-                <p>From happy, free-range hens.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/produce.jpg" alt="Seasonal Produce">
-                <h3>Seasonal Vegetables</h3>
-                <p>Grown without synthetic chemicals.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/meat.jpg" alt="Grass-Fed Meat">
-                <h3>Grass-Fed Meat</h3>
-                <p>Ethically raised and processed.</p>
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to Otter Oaks Farm, a small family farm in Maple Park, Illinois. We specialize in sustainably grown cut flowers, herbs, and small batch farm products.</p>
+                    <p>Our farm was established in 2018 with the mission of providing our community with beautiful, chemical-free flowers and farm goods while practicing regenerative agriculture.</p>
+                    <p>We offer seasonal flower subscriptions, farm products, and host workshops and events throughout the year.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645549459026-CHQXKDUYT6MLUOOIJTST/unsplash-image-Yy-dHQP-Ax0.jpg" alt="Otter Oaks Farm">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Visit Us Section -->
-    <section id="visit" class="visit">
-        <h2>Visit Our Farm</h2>
-        <div class="visit-content">
-            <div class="visit-text">
-                <p><strong>Farm Stand Hours:</strong><br>
-                Thursday–Sunday: 10AM–4PM</p>
-                <p><strong>Location:</strong><br>
-                123 Farm Road, [Your Town], [State]</p>
-                <a href="#contact" class="btn">Get Directions</a>
-            </div>
-            <div class="visit-image">
-                <img src="images/farm-stand.jpg" alt="Farm Stand">
+    <!-- CSA Section -->
+    <section id="csa" class="csa">
+        <div class="container">
+            <h2>2025 CSA Season</h2>
+            <div class="csa-content">
+                <p><em>Searching for convenient access to fresh, local produce grown by a trusted farmer who shares your environmental values? Ready to break out of your cooking rut?</em></p>
+                <p>Our CSA offers a bounty of quality, local produce to inspire wholesome meals and nourish your body.</p>
+                
+                <div class="csa-features">
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Diverse Selection</h3>
+                        <p>Explore a variety of flavors with our diverse veggie box, perfect for culinary adventurers.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Farm Fresh Quality</h3>
+                        <p>Taste the difference with our farm-fresh veggies—superior in quality and flavor, grown with care.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Community Support</h3>
+                        <p>Support your community by choosing local. Know your farmer and contribute to our local food system.</p>
+                    </div>
+                </div>
+                
+                <a href="https://grownby.app/farms/otter-oaks-farm/shop" class="btn" target="_blank">Shop Now</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <div class="contact-info">
-            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-            <p><i class="fas fa-envelope"></i> hello@otteroaksfarm.com</p>
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay in the Know</h2>
+            <p>Sign up with your email address to receive news and updates.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p><small>We respect your privacy.</small></p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=500w" alt="Otter Oaks Farm Logo">
+            </div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#csa">CSA</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.instagram.com/otteroaksfarm" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:hello@otteroaksfarm.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2024 Otter Oaks Farm, LLC. All rights reserved.</p>
         </div>
-        <p>&copy; 2024 Otter Oaks Farm. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.burger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.burger').classList.remove('fa-times');
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('.newsletter-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for subscribing!');
+                form.reset();
+            });
+        }
+    </script>
 </body>
 </html>
