@@ -24,7 +24,6 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--bg-color);
-            padding-top: 120px; /* Added for fixed header */
         }
 
         h1, h2, h3, h4 {
@@ -76,7 +75,7 @@
             padding: 0 20px;
         }
 
-        /* Navigation - Updated for hiding header */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -85,16 +84,8 @@
             background: var(--light-text);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        nav.hide {
-            transform: translateY(-100%);
+            width: 90%;
+            z-index: 100;
         }
 
         .logo img {
@@ -139,7 +130,7 @@
             font-size: 1.5rem;
         }
 
-        /* Hero Section - Updated padding */
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: url('https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/a563dcda-1e52-44d3-af05-0dc0c5f9717f/IMG_9860.jpeg') no-repeat center/cover;
@@ -149,15 +140,141 @@
             text-align: center;
             color: var(--light-text);
             position: relative;
-            padding-top: 60px; /* Reduced from 80px to account for fixed header */
+            padding-top: 80px;
         }
 
-        /* ... (rest of your existing CSS remains exactly the same) ... */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem; /* Reduced from 4rem */
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem; /* Reduced from 1.5rem */
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Page Sections */
+        .page-section {
+            padding: 80px 5%; /* Reduced from 100px */
+            text-align: center;
+        }
+
+        .page-section h2 {
+            font-size: 2.2rem; /* Reduced from 2.5rem */
+            margin-bottom: 40px; /* Reduced from 50px */
+            position: relative;
+        }
+
+        .page-section h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .page-content p {
+            margin-bottom: 20px;
+            font-size: 1rem; /* Reduced from 1.1rem */
+            line-height: 1.8;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            text-align: center;
+            padding: 60px 5%;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 5%; /* Reduced from 80px */
+            background: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 1.8rem; /* Reduced from 2rem */
+            margin-bottom: 20px; /* Reduced from 30px */
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 20px; /* Reduced from 30px */
+            font-size: 1rem; /* Reduced from 1.1rem */
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 40px 5% 20px; /* Reduced padding */
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 50px; /* Reduced from 60px */
+            width: auto;
+            max-width: 100%;
+            margin-bottom: 15px; /* Reduced from 20px */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem; /* Reduced from 3rem */
+            }
+            
+            .hero p {
+                font-size: 1.1rem; /* Reduced from 1.2rem */
+            }
+            
+            .page-section h2 {
+                font-size: 1.8rem; /* Reduced from 2.5rem */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem; /* Reduced from 2.5rem */
+            }
+            
+            .logo img {
+                height: 35px; /* Smaller logo for mobile */
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation - Added ID for JavaScript -->
-    <nav id="mainNav">
+    <!-- Navigation -->
+    <nav>
         <div class="logo">
             <a href="/">
                 <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=1500w" alt="Otter Oaks Farm Logo">
@@ -176,34 +293,187 @@
         </div>
     </nav>
 
-    <!-- ... (all your existing content remains exactly the same) ... -->
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Otter Oaks Farm</h1>
+            <p>Cultivating peace, love, unity & respect</p>
+            <a href="https://grownby.app/farms/otter-oaks-farm/shop" class="btn" target="_blank">Visit Our Shop</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="page-section">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="page-content">
+                <p>Welcome to Otter Oaks Farm, a small family farm in Maple Park, Illinois. We specialize in sustainably grown cut flowers, herbs, and small batch farm products.</p>
+                <p>Our farm was established in 2018 with the mission of providing our community with beautiful, chemical-free flowers and farm goods while practicing regenerative agriculture.</p>
+                <p>What began as a small backyard garden has blossomed into a thriving farm that serves our local community through:</p>
+                <ul>
+                    <li>Seasonal flower subscriptions</li>
+                    <li>Farm-fresh products</li>
+                    <li>Educational workshops</li>
+                    <li>Community events</li>
+                    <li>Volunteer opportunities</li>
+                </ul>
+                <p>We believe in farming practices that nurture the land, support pollinators, and create a sustainable future for our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="page-section">
+        <div class="container">
+            <h2>Volunteer With Us</h2>
+            <div class="page-content">
+                <p>We welcome volunteers to join us on the farm! Whether you're looking to learn about sustainable farming, get some fresh air, or just be part of our community, we'd love to have you.</p>
+                <p>Volunteer opportunities include:</p>
+                <ul>
+                    <li>Planting and harvesting flowers</li>
+                    <li>Weeding and garden maintenance</li>
+                    <li>Farm stand assistance</li>
+                    <li>Event setup and support</li>
+                    <li>Special projects</li>
+                </ul>
+                
+                <div class="volunteer-form">
+                    <h3>Volunteer Application</h3>
+                    <form id="volunteerForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="availability">When are you available?</label>
+                            <select id="availability" name="availability">
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="both">Both</option>
+                                <option value="varies">It varies</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="interests">What are you interested in helping with?</label>
+                            <textarea id="interests" name="interests"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="page-content">
+                <p>We'd love to hear from you! Whether you have questions about our products, want to visit the farm, or are interested in collaborating, please reach out.</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0;">
+                    <div>
+                        <h3>Visit Us</h3>
+                        <p>123 Farm Road<br>
+                        Maple Park, IL 60151</p>
+                        <p><strong>Farm Stand Hours:</strong><br>
+                        Thursday-Sunday<br>
+                        10am-4pm</p>
+                    </div>
+                    <div>
+                        <h3>Get In Touch</h3>
+                        <p><strong>Email:</strong> hello@otteroaksfarm.com</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/otteroaksfarm" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/otteroaksfarm" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="mailto:hello@otteroaksfarm.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <input type="text" id="contactSubject" name="contactSubject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="contactMessage" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="page-section">
+        <div class="container">
+            <h2>Farm Blog</h2>
+            <div class="page-content" style="text-align: center;">
+                <p>Read about our farm news, seasonal tips, and stories from our fields.</p>
+                <a href="blog.html" class="btn">View Our Blog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay in the Know</h2>
+            <p>Sign up with your email address to receive news and updates.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p><small>We respect your privacy.</small></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=500w" alt="Otter Oaks Farm Logo">
+            </div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.instagram.com/otteroaksfarm" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/otteroaksfarm" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:hello@otteroaksfarm.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2024 Otter Oaks Farm, LLC. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        // Hide header on scroll down, show on scroll up
-        let lastScroll = 0;
-        const navbar = document.getElementById('mainNav');
-        const scrollThreshold = 100; // How far to scroll before hiding
-        
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= scrollThreshold) {
-                // At top of page, always show
-                navbar.classList.remove('hide');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !navbar.classList.contains('hide')) {
-                // Scrolling down
-                navbar.classList.add('hide');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('hide')) {
-                // Scrolling up
-                navbar.classList.remove('hide');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
         // Mobile Menu Toggle
         document.querySelector('.burger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
