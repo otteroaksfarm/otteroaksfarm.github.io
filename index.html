@@ -886,8 +886,8 @@
             <button type="submit" class="btn">Sign Up</button>
         </form>
         <div class="thank-you-message" style="display: none;">
-            <h3>Thank you for subscribing to our newsletter!</h3>
-            <p>You'll receive updates and news from us soon.</p>
+            <h3>Thank you for signing up for our newsletter!</h3>
+            <p>We'll keep you updated with our latest news and offerings.</p>
         </div>
         <p><small>We respect your privacy.</small></p>
     </div>
@@ -1051,40 +1051,41 @@
         // Run on scroll
         window.addEventListener('scroll', animateOnScroll);
        
-        // Form Submission Message 
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-        
-        // Show loading state
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Hide form and show thank you message
-                form.style.display = 'none';
-                document.querySelector('.thank-you-message').style.display = 'block';
-            } else {
-                throw new Error('Failed to submit');
-            }
-        })
-        .catch(error => {
-            // Show error message
-            submitButton.textContent = 'Error - Try Again';
-            submitButton.disabled = false;
-            console.error('Error:', error);
-        });
+        // Newsletter Form Submission
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formContainer = form.closest('.container');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    
+    // Show loading state
+    submitButton.textContent = 'Sending...';
+    submitButton.disabled = true;
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Hide form and show thank you message
+            form.style.display = 'none';
+            formContainer.querySelector('.thank-you-message').style.display = 'block';
+        } else {
+            throw new Error('Failed to submit');
+        }
+    })
+    .catch(error => {
+        // Show error message
+        submitButton.textContent = 'Error - Try Again';
+        submitButton.disabled = false;
+        console.error('Error:', error);
     });
+});
 </script>
 </body>
 </html>
