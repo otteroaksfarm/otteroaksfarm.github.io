@@ -192,6 +192,7 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            color: #fff5f7; /* Changed to match pink background */
         }
 
         .hero p {
@@ -402,7 +403,7 @@
         }
 
         .footer-logo img {
-            height: 120px;
+            height: 250px; /* Updated to 250px as requested */
             width: auto;
             margin-bottom: 25px;
         }
@@ -435,7 +436,7 @@
         }
 
         .social-links a {
-            color: var(--light-text);
+            color: var(--primary-color); /* Updated to match header green */
             font-size: 1.8rem;
             transition: all 0.3s;
         }
@@ -545,6 +546,8 @@
 
             .volunteer-form {
                 padding: 25px 20px;
+                width: 90%; /* Adjusted for mobile */
+                max-width: 90%; /* Adjusted for mobile */
             }
             
             .form-group {
@@ -560,7 +563,7 @@
             }
 
             .footer-logo img {
-                height: 100px;
+                height: 200px; /* Adjusted for mobile */
             }
             
             .newsletter-form {
@@ -618,6 +621,8 @@
             .volunteer-form {
                 padding: 20px 15px;
                 margin: 20px auto;
+                width: 95%; /* Further adjusted for small mobile */
+                max-width: 95%; /* Further adjusted for small mobile */
             }
             
             .form-group {
@@ -639,7 +644,7 @@
             }
             
             .footer-logo img {
-                height: 80px;
+                height: 180px; /* Adjusted for small mobile */
             }
             
             .footer-links {
@@ -901,8 +906,12 @@
             // Toggle nav active state
             navLinks.classList.toggle('active');
             
-            // Toggle burger icon
-            this.classList.toggle('fa-times');
+            // Toggle burger icon without adding X
+            if (navLinks.classList.contains('active')) {
+                this.innerHTML = '<i class="fas fa-bars"></i>';
+            } else {
+                this.innerHTML = '<i class="fas fa-bars"></i>';
+            }
             
             // Animate nav links
             if (navLinks.classList.contains('active')) {
@@ -920,7 +929,7 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                burger.classList.remove('fa-times');
+                burger.innerHTML = '<i class="fas fa-bars"></i>';
                 navLinksItems.forEach(item => {
                     item.style.animation = '';
                 });
@@ -935,7 +944,7 @@
                 // Close mobile menu if open
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
-                    burger.classList.remove('fa-times');
+                    burger.innerHTML = '<i class="fas fa-bars"></i>';
                     navLinksItems.forEach(item => {
                         item.style.animation = '';
                     });
