@@ -74,8 +74,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 5%;
-            background: var(--light-text);
-            box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+            background: var(--bg-color);
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
@@ -224,6 +223,7 @@
         /* Form Styling */
         .form-group {
             margin-bottom: 15px;
+            width: 100%;
         }
 
         .form-group label {
@@ -240,6 +240,7 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
+            max-width: 280px;
             padding: 8px 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -252,6 +253,7 @@
         .form-group textarea {
             min-height: 100px;
             resize: none;
+            max-width: 100%;
         }
 
         .volunteer-form,
@@ -275,6 +277,12 @@
             display: flex;
             gap: 12px;
             margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            min-width: 200px;
         }
 
         .form-actions {
@@ -426,6 +434,13 @@
             .form-row {
                 flex-direction: column;
                 gap: 10px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group select {
+                max-width: 100%;
             }
 
             .btn {
