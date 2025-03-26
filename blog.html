@@ -186,20 +186,81 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
-        .post-image {
+        /* Image Carousel Styles */
+        .post-carousel {
+            position: relative;
             height: 250px;
             overflow: hidden;
         }
-
-        .post-image img {
+        
+        .carousel-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
-
-        .blog-post:hover .post-image img {
-            transform: scale(1.05);
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: var(--light-text);
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 1rem;
+            transition: all 0.3s;
+            z-index: 2;
+        }
+        
+        .carousel-arrow:hover {
+            background: rgba(255,255,255,0.8);
+        }
+        
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+        
+        .carousel-arrow.next {
+            right: 10px;
         }
 
         .post-content {
@@ -370,6 +431,12 @@
             .footer-logo img {
                 height: 100px;
             }
+            
+            .carousel-arrow {
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -400,6 +467,10 @@
             
             .nav-links a {
                 font-size: 1.3rem;
+            }
+            
+            .post-carousel {
+                height: 220px;
             }
         }
         
@@ -452,8 +523,25 @@
         <div class="blog-posts">
             <!-- Blog Post 1 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Spring Flowers at Otter Oaks Farm">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel1">
+                        <div class="carousel-slide">
+                            <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Spring Flowers at Otter Oaks Farm">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="More Spring Flowers">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1526397751294-331021109fbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Field of Flowers">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel1', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel1', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel1', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -467,8 +555,25 @@
 
             <!-- Blog Post 2 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Sustainable Farming Practices">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel2">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Sustainable Farming Practices">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Composting Process">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Organic Farming">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel2', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel2', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel2', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -482,8 +587,25 @@
 
             <!-- Blog Post 3 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Farm Workshop">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel3">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Farm Workshop">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Floral Arrangement">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1459156212016-c812468e2115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Workshop Participants">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel3', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel3', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel3', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel3', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel3', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -497,8 +619,25 @@
 
             <!-- Blog Post 4 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Winter on the Farm">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel4">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Winter on the Farm">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Winter Greenhouse">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Winter Planning">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel4', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel4', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel4', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel4', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel4', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -512,8 +651,25 @@
 
             <!-- Blog Post 5 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Farm Stand">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel5">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Farm Stand">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Market Day">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Customers at Market">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel5', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel5', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel5', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel5', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel5', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -527,8 +683,25 @@
 
             <!-- Blog Post 6 -->
             <article class="blog-post">
-                <div class="post-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Bee on Flower">
+                <div class="post-carousel">
+                    <div class="carousel-container" id="carousel6">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bee on Flower">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Butterfly Garden">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pollinator Habitat">
+                        </div>
+                    </div>
+                    <div class="carousel-arrow prev" onclick="moveSlide('carousel6', -1)">&#10094;</div>
+                    <div class="carousel-arrow next" onclick="moveSlide('carousel6', 1)">&#10095;</div>
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" onclick="goToSlide('carousel6', 0)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel6', 1)"></div>
+                        <div class="carousel-dot" onclick="goToSlide('carousel6', 2)"></div>
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
@@ -628,6 +801,65 @@
         
         // Run on scroll
         window.addEventListener('scroll', animateOnScroll);
+        
+        // Carousel functionality
+        function moveSlide(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll(`[onclick*="${carouselId}"]`);
+            const slideWidth = slides[0].clientWidth;
+            const currentTransform = carousel.style.transform ? parseInt(carousel.style.transform.split('(')[1]) : 0;
+            
+            let newTransform;
+            if (direction === 1) {
+                // Next slide
+                newTransform = currentTransform - slideWidth;
+                if (newTransform < -slideWidth * (slides.length - 1)) {
+                    newTransform = 0; // Loop back to first slide
+                }
+            } else {
+                // Previous slide
+                newTransform = currentTransform + slideWidth;
+                if (newTransform > 0) {
+                    newTransform = -slideWidth * (slides.length - 1); // Loop to last slide
+                }
+            }
+            
+            carousel.style.transform = `translateX(${newTransform}px)`;
+            
+            // Update active dot
+            const activeIndex = Math.abs(newTransform / slideWidth);
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[activeIndex].classList.add('active');
+        }
+        
+        function goToSlide(carouselId, index) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll(`[onclick*="${carouselId}"]`);
+            const slideWidth = slides[0].clientWidth;
+            
+            const newTransform = -slideWidth * index;
+            carousel.style.transform = `translateX(${newTransform}px)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+        
+        // Auto-advance carousels (optional)
+        function autoAdvanceCarousels() {
+            const carousels = document.querySelectorAll('.carousel-container');
+            carousels.forEach((carousel, index) => {
+                // Only advance if not hovering
+                if (!carousel.parentElement.matches(':hover')) {
+                    moveSlide(carousel.id, 1);
+                }
+            });
+        }
+        
+        // Uncomment to enable auto-advancing (every 5 seconds)
+        // setInterval(autoAdvanceCarousels, 5000);
     </script>
 </body>
 </html>
