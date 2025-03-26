@@ -220,75 +220,51 @@
             line-height: 1.7;
         }
 
-        /* Form Styling */
-        .form-group {
-            margin-bottom: 15px;
-            width: 100%;
-        }
+       /* Updated Form Styling */
+.volunteer-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px; /* Reduced from 600px */
+}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--primary-color);
-            font-size: 0.9rem;
-        }
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            max-width: 280px;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            background-color: #f9f9f9;
-        }
+.form-row .form-group {
+    flex: 1;
+    min-width: 0; /* Allows fields to shrink properly */
+}
 
-        .form-group textarea {
-            min-height: 100px;
-            resize: none;
-            max-width: 100%;
-        }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    max-width: 220px; /* Reduced from 280px */
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    background-color: #f9f9f9;
+}
 
-        .volunteer-form,
-        .contact-form-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-            margin: 20px auto;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .volunteer-form h3,
-        .contact-form-container h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .form-actions {
-            text-align: center;
-            margin-top: 20px;
-        }
+/* Keep textarea at full width */
+.form-group textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+    max-width: 100%;
+}
 
         /* Contact Info Section - Centered and without boxes */
         .contact-info {
