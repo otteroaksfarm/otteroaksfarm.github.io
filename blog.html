@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Blog | Otter Oaks Farm</title>
+    <title>Otter Oaks Farm Blog | Illinois Flower Farm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -16,6 +16,7 @@
             --light-text: #fff;
             --bg-color: #fff5f7;
         }
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -23,33 +24,73 @@
             color: var(--text-color);
             line-height: 1.6;
             background-color: var(--bg-color);
-            padding-top: 140px; /* Adjusted for larger header */
+            overflow-x: hidden;
         }
 
-        /* Navigation - Perfectly matched to index page */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            min-width: 160px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Navigation - Matches Index Page */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
-            background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            padding: 15px 5%;
+            background: var(--bg-color);
+            position: relative;
+            z-index: 100;
+            box-sizing: border-box;
             width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
         }
-        
-        nav.hide {
-            transform: translateY(-100%);
-            box-shadow: none;
+
+        .logo {
+            margin-right: auto;
+            z-index: 101;
         }
 
         .logo img {
-            height: 80px;
+            height: 90px;
             width: auto;
             max-width: 100%;
             transition: transform 0.3s ease;
@@ -59,42 +100,39 @@
             transform: scale(1.05);
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
-            gap: 30px;
-            align-items: center;
+            gap: 20px;
         }
 
         .nav-links li {
-            margin: 0;
             position: relative;
         }
 
         .nav-links a {
-            font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            font-size: 1.2rem;
-            color: var(--primary-color);
+            font-size: 1rem;
             white-space: nowrap;
-            padding: 10px 0;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
+            padding: 5px 0;
         }
 
         .nav-links a:after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
-            bottom: 5px;
+            height: 2px;
+            bottom: 2px;
             left: 0;
-            background-color: var(--accent-color);
+            background-color: var(--primary-color);
             transition: width 0.3s;
         }
 
@@ -105,252 +143,451 @@
         .burger {
             display: none;
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            margin-left: 15px;
             color: var(--primary-color);
-            margin-left: 25px;
-            transition: transform 0.3s ease;
+            z-index: 101;
         }
 
-        .burger:hover {
-            transform: scale(1.1);
+        /* Blog Content Styles */
+        .blog-header {
+            text-align: center;
+            padding: 60px 0 40px;
         }
 
-        /* Blog Content */
-        .page-section {
-            padding: 60px 5% 80px;
+        .blog-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
 
-        .blog-post-full {
+        .blog-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 0 20px 60px;
+        }
+
+        .blog-post {
             background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            margin-bottom: 60px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .blog-post-full:hover {
+        .blog-post:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
-        .blog-post-full img {
+        .post-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .post-image img {
             width: 100%;
-            max-width: 800px;
-            height: auto;
-            max-height: 500px;
-            border-radius: 10px;
-            margin: 0 auto 25px;
-            display: block;
+            height: 100%;
             object-fit: cover;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.5s;
         }
 
-        .date {
-            color: #777;
-            font-size: 0.9rem;
-            display: block;
+        .blog-post:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .post-content {
+            padding: 25px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
         }
 
-        /* Buttons - Matched to index page */
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
+        .post-date {
+            margin-right: 15px;
+        }
+
+        .post-category {
+            background: var(--accent-color);
+            color: var(--text-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Footer - Matches Index Page */
+        footer {
+            background: var(--secondary-color);
             color: var(--light-text);
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            padding: 50px 5% 30px;
             text-align: center;
         }
 
-        .btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
+        .footer-logo img {
+            height: 120px;
+            width: auto;
+            margin-bottom: 25px;
         }
 
-        .btn-outline:hover {
-            background: var(--primary-color);
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links a {
             color: var(--light-text);
+            font-size: 1rem;
+            font-weight: 500;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 20px;
-            }
-            .nav-links a {
-                font-size: 1.1rem;
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .blog-posts {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 110px;
+            .container {
+                padding: 0 15px;
             }
-            
-            .logo img {
-                height: 65px;
+
+            nav {
+                padding: 15px;
             }
-            
-            .nav-links {
-                position: fixed;
-                top: 110px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                display: none;
-                gap: 25px;
+
+            .blog-header {
+                padding: 40px 0 30px;
             }
-            
-            .nav-links.active {
-                display: flex;
+
+            .blog-header h1 {
+                font-size: 2.2rem;
             }
-            
+
             .burger {
                 display: block;
             }
-            
-            .page-section {
-                padding: 40px 5% 60px;
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                gap: 25px;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                opacity: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+                white-space: normal;
+            }
+
+            .blog-posts {
+                grid-template-columns: 1fr;
+                padding: 0 15px 40px;
+                gap: 25px;
+            }
+
+            .footer-logo img {
+                height: 100px;
             }
         }
 
         @media (max-width: 480px) {
+            .blog-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .blog-header p {
+                font-size: 1rem;
+            }
+            
+            .post-title {
+                font-size: 1.3rem;
+            }
+            
             .logo img {
-                height: 55px;
+                height: 70px;
             }
             
-            body {
-                padding-top: 100px;
+            .footer-logo img {
+                height: 80px;
             }
             
-            .nav-links {
-                top: 100px;
-                padding: 25px 0;
-                gap: 20px;
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
             
-            .blog-post-full {
-                padding: 25px;
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Animation for mobile menu items */
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar - Perfectly matched to index page -->
-    <nav id="mainNav">
+    <!-- Navigation - Matches Index Page -->
+    <nav>
         <div class="logo">
-            <a href="index.html">
+            <a href="/">
                 <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=1500w" alt="Otter Oaks Farm Logo">
             </a>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#story">Our Story</a></li>
-            <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
-            <li><a href="index.html#volunteer">Volunteer</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#story">Our Story</a></li>
+                <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
+                <li><a href="index.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
         <div class="burger">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- Blog Content -->
-    <section class="page-section">
+    <!-- Blog Header -->
+    <div class="blog-header">
         <div class="container">
-            <h1>Farm Blog</h1>
-            <div class="page-content">
-                <a href="index.html" class="btn-outline" style="margin-bottom: 30px;">← Back to Home</a>
-                
-                <!-- Blog Post 1 -->
-                <article class="blog-post-full">
-                    <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651" alt="Spring Planting">
-                    <span class="date">May 15, 2024</span>
-                    <h2>Spring Planting Guide</h2>
-                    <p>Welcome to our spring planting season! This year we're focusing on expanding our native flower varieties and implementing new sustainable growing techniques. The mild winter has given us a head start, and we're excited to share our progress with you.</p>
-                    <p>Our planting schedule this year includes:</p>
-                    <ul>
-                        <li>Early spring: Peonies, ranunculus, and anemones</li>
-                        <li>Mid-spring: Zinnias, cosmos, and sunflowers</li>
-                        <li>Late spring: Dahlias and specialty cut flowers</li>
-                    </ul>
-                    <p>We're also experimenting with no-till methods in our new growing beds to improve soil health and reduce erosion. The early results are promising, with better water retention and increased earthworm activity.</p>
-                </article>
-                
-                <!-- Blog Post 2 -->
-                <article class="blog-post-full">
-                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae" alt="Flower Arranging">
-                    <span class="date">April 28, 2024</span>
-                    <h2>Flower Arranging Workshop Recap</h2>
-                    <p>Our April flower arranging workshop was our most successful yet, with 25 participants learning to create beautiful spring bouquets. We used a mix of early blooms from our fields, including tulips, daffodils, and flowering branches.</p>
-                    <p>Highlights from the workshop:</p>
-                    <ul>
-                        <li>Demonstration of spiral bouquet technique</li>
-                        <li>Tips for proper cutting to extend vase life</li>
-                        <li>Creating focal points in arrangements</li>
-                        <li>Using foliage for texture and volume</li>
-                    </ul>
-                    <p>We'll be hosting another workshop on June 15th focusing on summer garden arrangements. Registration opens May 15th for our newsletter subscribers.</p>
-                    <a href="index.html#contact" class="btn" style="margin-top: 20px;">Sign Up for Updates</a>
-                </article>
-            </div>
+            <h1>Otter Oaks Farm Blog</h1>
+            <p>Stories from our fields, seasonal tips, and farm updates</p>
         </div>
-    </section>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="container">
+        <div class="blog-posts">
+            <!-- Blog Post 1 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Spring Flowers at Otter Oaks Farm">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">March 15, 2024</span>
+                        <span class="post-category">Seasonal Updates</span>
+                    </div>
+                    <h2 class="post-title">Welcoming Spring on the Farm</h2>
+                    <p class="post-excerpt">As winter fades, we're busy preparing our fields for the growing season. See what's blooming first this spring and learn about our planting schedule.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Sustainable Farming Practices">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">February 28, 2024</span>
+                        <span class="post-category">Sustainable Farming</span>
+                    </div>
+                    <h2 class="post-title">Our Regenerative Agriculture Practices</h2>
+                    <p class="post-excerpt">Discover how we're building healthy soil, supporting pollinators, and growing flowers sustainably without synthetic chemicals.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Farm Workshop">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">January 10, 2024</span>
+                        <span class="post-category">Workshops</span>
+                    </div>
+                    <h2 class="post-title">Upcoming Floral Design Workshops</h2>
+                    <p class="post-excerpt">Join us this season for hands-on workshops where you'll learn to create beautiful arrangements with our farm-fresh flowers.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Winter on the Farm">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">December 5, 2023</span>
+                        <span class="post-category">Farm Life</span>
+                    </div>
+                    <h2 class="post-title">Winter Preparations at Otter Oaks</h2>
+                    <p class="post-excerpt">While the fields may be resting, we're busy planning for next season. See how we prepare during the quiet winter months.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Farm Stand">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">October 20, 2023</span>
+                        <span class="post-category">Community</span>
+                    </div>
+                    <h2 class="post-title">Our First Season at the Farmers Market</h2>
+                    <p class="post-excerpt">Reflections on our inaugural season selling at the local farmers market and the wonderful community we've met.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/1645557895075-4J5N1ZQZ1KQ5XJQZQZQZ/Spring+Flowers.jpg" alt="Bee on Flower">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="post-date">September 8, 2023</span>
+                        <span class="post-category">Sustainability</span>
+                    </div>
+                    <h2 class="post-title">Supporting Pollinators on the Farm</h2>
+                    <p class="post-excerpt">Learn about the important role pollinators play in our ecosystem and how we're creating habitat for them at Otter Oaks.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Footer - Matches Index Page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://images.squarespace-cdn.com/content/v1/621510617125502ee0b84c7f/0e2ee0b7-1dc9-4a3c-b352-2ef70619549a/Logo_For_Texting.png?format=500w" alt="Otter Oaks Farm Logo">
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#story">Our Story</a></li>
+                <li><a href="https://grownby.app/farms/otter-oaks-farm/shop" target="_blank">Shop</a></li>
+                <li><a href="index.html#volunteer">Volunteer</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="https://www.instagram.com/otteroaksfarm" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/otteroaksfarm" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="mailto:hello@otteroaksfarm.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2024 Otter Oaks Farm, LLC. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        // Enhanced Header Behavior
-        const navbar = document.getElementById('mainNav');
-        let lastScroll = 0;
-        const scrollThreshold = 100;
-        let ticking = false;
-        
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const currentScroll = window.pageYOffset;
-                    
-                    if (currentScroll <= scrollThreshold) {
-                        navbar.classList.remove('hide');
-                    } else if (currentScroll > lastScroll) {
-                        navbar.classList.add('hide');
-                    } else {
-                        navbar.classList.remove('hide');
-                    }
-                    
-                    lastScroll = currentScroll;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-
-        // Mobile Menu Functionality
+        // Mobile Menu Toggle with Animation - Matches Index Page
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-links li');
         
         burger.addEventListener('click', function() {
+            // Toggle nav active state
             navLinks.classList.toggle('active');
+            
+            // Toggle burger icon
             this.classList.toggle('fa-times');
-            this.classList.toggle('fa-bars');
+            
+            // Animate nav links
+            if (navLinks.classList.contains('active')) {
+                navLinksItems.forEach((item, index) => {
+                    item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                });
+            } else {
+                navLinksItems.forEach(item => {
+                    item.style.animation = '';
+                });
+            }
         });
 
         // Close mobile menu when clicking a link
@@ -358,19 +595,39 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 burger.classList.remove('fa-times');
-                burger.classList.add('fa-bars');
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                navLinksItems.forEach(item => {
+                    item.style.animation = '';
                 });
             });
         });
+
+        // Add animation to elements when they come into view
+        const animateOnScroll = () => {
+            const posts = document.querySelectorAll('.blog-post');
+            
+            posts.forEach((post, index) => {
+                const postTop = post.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (postTop < windowHeight * 0.75) {
+                    post.style.opacity = '1';
+                    post.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial styles for animation
+        document.querySelectorAll('.blog-post').forEach((post, index) => {
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+            post.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        });
+        
+        // Run once on page load
+        animateOnScroll();
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
