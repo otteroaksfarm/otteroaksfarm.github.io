@@ -308,57 +308,45 @@
 }
 
 
-        /* Newsletter Section */
-        .newsletter {
-            background: var(--secondary-color);
-            padding: 60px 5%;
-            text-align: center;
-            color: var(--light-text);
-            margin: 50px 0;
-        }
+        /* Updated Newsletter Styles */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 15px;
+    width: 100%;
+}
 
-        .newsletter h2 {
-            color: var(--light-text);
-            margin-bottom: 20px;
-        }
+.newsletter-form .form-group {
+    width: 100%;
+    margin-bottom: 0;
+}
 
-        .newsletter p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    height: 50px;
+}
 
-        .newsletter-form {
-            display: flex;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 10px;
-        }
+.newsletter-form .form-actions {
+    width: 100%;
+    text-align: center;
+}
 
-        .newsletter-form input[type="email"] {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            min-width: 0;
-        }
-
-        .newsletter-form .btn {
-            background: var(--accent-color);
-            color: var(--text-color);
-        }
-
-        .newsletter-form .btn:hover {
-            background: #f0b78a;
-        }
-
-        .newsletter small {
-            display: block;
-            margin-top: 15px;
-            opacity: 0.8;
-        }
+.newsletter-form .btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 1rem;
+}
         .thank-you-message {
             text-align: center;
             padding: 20px;
@@ -551,7 +539,20 @@
             .nav-container {
                 max-width: calc(100% - 100px);
             }
-        }
+            .newsletter-form {
+        gap: 10px;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 12px 15px;
+        height: 45px;
+    }
+    
+    .newsletter-form .btn {
+        padding: 12px;
+        max-width: 100%;
+    }
+}
 
         @media (max-width: 480px) {
             body {
@@ -751,8 +752,12 @@ As we enter our second season as a farm, we embrace the early stages of growth a
         <p>Sign up with your email address to receive news and updates.</p>
         <form id="newsletterForm" class="newsletter-form">
             <input type="hidden" name="_subject" value="New Newsletter Signup">
-            <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required>
-            <button type="submit" class="btn">Sign Up</button>
+            <div class="form-group">
+                <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn">Sign Up</button>
+            </div>
         </form>
         <div id="thankYouMessage" class="thank-you-message" style="display: none;">
             <h3>Thank you for signing up!</h3>
