@@ -158,155 +158,116 @@
             z-index: 101;
         }
 
-        /* Blog Content Styles */
-        .blog-header {
-            text-align: center;
-            padding: 60px 0 40px;
-            margin-top: 20px; /* Added space below fixed header */
-        }
+        /* Blog Section Styles */
+.blog-posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-        .blog-header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-        .blog-header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+.post-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
 
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 0 20px 60px;
-        }
+.carousel-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
 
-        .blog-post {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+}
 
-        .blog-post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* Image Carousel Styles */
-        .post-carousel {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .carousel-container {
-            display: flex;
-            height: 100%;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-slide {
-            min-width: 100%;
-            height: 100%;
-        }
-        
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .carousel-nav {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-        }
-        
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .carousel-dot.active {
-            background: var(--light-text);
-        }
-        
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--primary-color);
-            font-size: 1rem;
-            transition: all 0.3s;
-            z-index: 2;
-        }
-        
-        .carousel-arrow:hover {
-            background: rgba(255,255,255,0.8);
-        }
-        
-        .carousel-arrow.prev {
-            left: 10px;
-        }
-        
-        .carousel-arrow.next {
-            right: 10px;
-        }
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 10;
+    user-select: none;
+}
 
-        .post-content {
-            padding: 25px;
-        }
+.carousel-arrow.prev {
+    left: 15px;
+}
 
-        .post-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
-        }
+.carousel-arrow.next {
+    right: 15px;
+}
 
-        .post-date {
-            margin-right: 15px;
-        }
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
 
-        .post-category {
-            background: var(--accent-color);
-            color: var(--text-color);
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
 
-        .post-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
+.carousel-dot.active {
+    background: white;
+}
 
-        .post-excerpt {
-            margin-bottom: 20px;
-            color: #555;
-        }
+.post-content {
+    padding: 25px;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.post-excerpt {
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
 
         /* Newsletter Section */
         .newsletter {
@@ -513,6 +474,13 @@
                 height: 25px;
                 font-size: 0.8rem;
             }
+            .post-carousel {
+                height: 300px;
+            }
+    
+            .post-title {
+                font-size: 1.5rem;
+    }
             
             .logo img {
                 height: 60px;
@@ -611,105 +579,108 @@
     </div>
 
     <!-- Blog Posts Grid -->
-    <div class="container">
-        <div class="blog-posts">
-            <!-- Blog Post 2 -->
-            <article class="blog-post">
-                <div class="post-carousel">
-                    <div class="carousel-container" id="carousel1">
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/SKXYTGM0/2023-july-farm.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/BQ1bHvHp/IMG-9860.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/2Sy1yxTq/radish-leaves.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/wM9vp57j/verytinywatermelon.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/VkJNmkLn/IMG-9862.jpg" alt="Otter Oaks Farm">
-                        </div>
-                         <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/cHS1R77B/gethsemane.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/hv3q5Vmw/IMG-9727.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/bYFc8HGV/melon-start.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/nc6y9FGv/okra-flower.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/FRWqrNKk/tomatoplanting.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/rpp3vDV2/soraya.jpg" alt="Otter Oaks Farm">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/ydg5823f/squash-transplant.jpg" alt="Otter Oaks Farm">
-                        </div>
-        
-                    <div class="carousel-arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</div>
-                    <div class="carousel-arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</div>
-                    <div class="carousel-nav">
-                        <div class="carousel-dot active" onclick="goToSlide('carousel1', 0)"></div>
-                        <div class="carousel-dot" onclick="goToSlide('carousel1', 1)"></div>
-                        <div class="carousel-dot" onclick="goToSlide('carousel1', 2)"></div>
+<div class="container">
+    <div class="blog-posts">
+        <!-- Blog Post 2 -->
+        <article class="blog-post">
+            <div class="post-carousel">
+                <div class="carousel-container" id="carousel1">
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/SKXYTGM0/2023-july-farm.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/BQ1bHvHp/IMG-9860.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/2Sy1yxTq/radish-leaves.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/wM9vp57j/verytinywatermelon.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/VkJNmkLn/IMG-9862.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/cHS1R77B/gethsemane.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/hv3q5Vmw/IMG-9727.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/bYFc8HGV/melon-start.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/nc6y9FGv/okra-flower.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/FRWqrNKk/tomatoplanting.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/rpp3vDV2/soraya.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/ydg5823f/squash-transplant.jpg" alt="Otter Oaks Farm">
                     </div>
                 </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-date">February 19, 2024</span>
-                        <span class="post-category">Seasonal Updates</span>
-                    </div>
-                    <h2 class="post-title">Expanding Horizons</h2>
-                    <p class="post-excerpt">In 2023, our farm flourished, and we are eager to share its beauty with our members and subscribers. Our commitment to knowledge includes transparency about our farm's origins and practices. Utilizing natural methods, we tend to our plants from seed to harvest.
+                <div class="carousel-arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</div>
+                <div class="carousel-arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" onclick="goToSlide('carousel1', 0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 1)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 2)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 3)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 4)"></div>
+                </div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span class="post-date">February 19, 2024</span>
+                    <span class="post-category">Seasonal Updates</span>
+                </div>
+                <h2 class="post-title">Expanding Horizons</h2>
+                <p class="post-excerpt">In 2023, our farm flourished, and we are eager to share its beauty with our members and subscribers. Our commitment to knowledge includes transparency about our farm's origins and practices. Utilizing natural methods, we tend to our plants from seed to harvest.
 
 For two years, we cultivated an eighth-acre plot at the Legends Farm site alongside other farm businesses. In 2024, we will expand onto two additional plots, enhancing our impact and providing more vegetables for our CSA members, local food banks, and WIC stores in our community.
 
 We invite you to join us in 2024 as we cultivate more fruits, vegetables, greens, melons, and herbs, sharing our healthy, fresh produce with the community. Visit our shop to learn more!</p>
-                </div>
-            </article>
+                <a href="blog/expanding-horizons.html" class="btn">Read More</a>
+            </div>
+        </article>
 
-            <!-- Blog Post 1 -->
-            <article class="blog-post">
-                <div class="post-carousel">
-                    <div class="carousel-container" id="carousel2">
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/Y9kDfjvW/jarvi-soraya.jpg" alt="J+S">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="https://i.postimg.cc/3NxLV6Cr/2023starts-blogsize.jpg" alt="Transplant Starts">
-                        </div>
+        <!-- Blog Post 1 -->
+        <article class="blog-post">
+            <div class="post-carousel">
+                <div class="carousel-container" id="carousel2">
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/Y9kDfjvW/jarvi-soraya.jpg" alt="J+S">
                     </div>
-                    <div class="carousel-arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</div>
-                    <div class="carousel-arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</div>
-                    <div class="carousel-nav">
-                        <div class="carousel-dot active" onclick="goToSlide('carousel2', 0)"></div>
-                        <div class="carousel-dot" onclick="goToSlide('carousel2', 1)"></div>
-                        <div class="carousel-dot" onclick="goToSlide('carousel2', 2)"></div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/3NxLV6Cr/2023starts-blogsize.jpg" alt="Transplant Starts">
                     </div>
                 </div>
-                <div class="post-content">
-                    <div class="post-meta">
-                        <span class="post-date">May 16, 2023</span>
-                        <span class="post-category">Seasonal Updates</span>
-                    </div>
-                    <h2 class="post-title">Growth and Rewards: Embracing The Beginnings</h2>
-                    <p class="post-excerpt">Harvest time is an exciting and magical experience, but the start of every growing season holds its own rewards. Although there's a lot of pressure to get our farm ready and ensure a bountiful harvest for our CSA members, there's also immense fulfillment in cultivating our grow beds with nutrient-rich soil and compost. 
+                <div class="carousel-arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</div>
+                <div class="carousel-arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" onclick="goToSlide('carousel2', 0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 1)"></div>
+                </div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span class="post-date">May 16, 2023</span>
+                    <span class="post-category">Seasonal Updates</span>
+                </div>
+                <h2 class="post-title">Growth and Rewards: Embracing The Beginnings</h2>
+                <p class="post-excerpt">Harvest time is an exciting and magical experience, but the start of every growing season holds its own rewards. Although there's a lot of pressure to get our farm ready and ensure a bountiful harvest for our CSA members, there's also immense fulfillment in cultivating our grow beds with nutrient-rich soil and compost. 
 
 Watching seedlings emerge from the ground and witnessing young plants grow together creates a thrilling sense of anticipation for the upcoming season. Despite challenges, both the beginning and harvest periods offer their unique joys in nurturing nature's bounty.
 
 As we enter our second season as a farm, we embrace the early stages of growth and appreciate the journey ahead. We are young farmers nurturing young seedlings, cherishing each step in our evolution. The fruits of our greatest labors lie before us, and we eagerly anticipate their arrival while enjoying this foundational period for both ourselves and our crops.</p>
-                </div>
-            </article>
-        </div>
+                <a href="blog/growth-and-rewards.html" class="btn">Read More</a>
+            </div>
+        </article>
     </div>
+</div>
 
     <!-- Newsletter Section -->
     <section class="newsletter">
@@ -813,63 +784,62 @@ As we enter our second season as a farm, we embrace the early stages of growth a
         window.addEventListener('scroll', animateOnScroll);
         
         // Carousel functionality
-        function moveSlide(carouselId, direction) {
-            const carousel = document.getElementById(carouselId);
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll(`[onclick*="${carouselId}"]`);
-            const slideWidth = slides[0].clientWidth;
-            const currentTransform = carousel.style.transform ? parseInt(carousel.style.transform.split('(')[1]) : 0;
-            
-            let newTransform;
-            if (direction === 1) {
-                // Next slide
-                newTransform = currentTransform - slideWidth;
-                if (newTransform < -slideWidth * (slides.length - 1)) {
-                    newTransform = 0; // Loop back to first slide
-                }
-            } else {
-                // Previous slide
-                newTransform = currentTransform + slideWidth;
-                if (newTransform > 0) {
-                    newTransform = -slideWidth * (slides.length - 1); // Loop to last slide
-                }
-            }
-            
-            carousel.style.transform = `translateX(${newTransform}px)`;
-            
-            // Update active dot
-            const activeIndex = Math.abs(newTransform / slideWidth);
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[activeIndex].classList.add('active');
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all carousels
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach((carousel, index) => {
+        const carouselId = carousel.id;
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
         
-        function goToSlide(carouselId, index) {
-            const carousel = document.getElementById(carouselId);
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll(`[onclick*="${carouselId}"]`);
-            const slideWidth = slides[0].clientWidth;
-            
-            const newTransform = -slideWidth * index;
-            carousel.style.transform = `translateX(${newTransform}px)`;
-            
-            // Update active dot
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-        }
+        let currentSlide = 0;
+        const totalSlides = slides.length;
         
-        // Auto-advance carousels (optional)
-        function autoAdvanceCarousels() {
-            const carousels = document.querySelectorAll('.carousel-container');
-            carousels.forEach((carousel, index) => {
-                // Only advance if not hovering
-                if (!carousel.parentElement.matches(':hover')) {
-                    moveSlide(carousel.id, 1);
-                }
-            });
-        }
+        // Initialize first slide
+        updateCarousel(carouselId, 0);
         
-        // Uncomment to enable auto-advancing (every 5 seconds)
-        // setInterval(autoAdvanceCarousels, 5000);
+        // Auto-advance every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel(carouselId, currentSlide);
+        }, 5000);
+    });
+});
+
+// Move slide function
+function moveSlide(carouselId, direction) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
+    
+    let currentSlide = parseInt(carousel.dataset.currentSlide) || 0;
+    const totalSlides = slides.length;
+    
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    updateCarousel(carouselId, currentSlide);
+}
+
+// Go to specific slide
+function goToSlide(carouselId, slideIndex) {
+    updateCarousel(carouselId, slideIndex);
+}
+
+// Update carousel display
+function updateCarousel(carouselId, slideIndex) {
+    const carousel = document.getElementById(carouselId);
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
+    
+    // Update slide position
+    carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
+    carousel.dataset.currentSlide = slideIndex;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex % dots.length);
+    });
+}
     </script>
 </body>
 </html>
