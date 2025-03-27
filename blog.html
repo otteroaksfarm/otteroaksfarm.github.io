@@ -745,23 +745,19 @@ As we enter our second season as a farm, we embrace the early stages of growth a
     </div>
 </div>
 
-    <!-- Newsletter Section -->
+   <!-- Newsletter Section -->
 <section class="newsletter">
     <div class="container">
         <h2>Stay in the Know</h2>
         <p>Sign up with your email address to receive news and updates.</p>
-        <form id="newsletterForm" class="newsletter-form">
+        <form id="newsletterForm" class="newsletter-form" action="https://formspree.io/f/xyzepqwy" method="POST">
             <input type="hidden" name="_subject" value="New Newsletter Signup">
-            <div class="form-group">
-                <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required>
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn">Sign Up</button>
-            </div>
+            <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required>
+            <button type="submit" class="btn">Sign Up</button>
         </form>
-        <div id="thankYouMessage" class="thank-you-message" style="display: none;">
-            <h3>Thank you for signing up!</h3>
-            <p>We'll keep you updated with our latest news and offerings.</p>
+        <div class="thank-you-message" style="display: none;">
+            <h3>Thank you for signing up for our newsletter!</h3>
+            <p><i>We'll keep you updated with our latest news and offerings.</i></p>
         </div>
         <p><small>We respect your privacy.</small></p>
     </div>
@@ -911,14 +907,14 @@ function updateCarousel(carouselId, slideIndex) {
         dot.classList.toggle('active', index === slideIndex % dots.length);
     });
 }
-        // Newsletter Form Submission
+        // Newsletter Form Submission - Matches Index Page
 document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const form = e.target;
+    const formContainer = form.closest('.container');
     const submitButton = form.querySelector('button[type="submit"]');
     const emailInput = document.getElementById('newsletterEmail');
-    const thankYouMessage = document.getElementById('thankYouMessage');
     
     // Show loading state
     const originalButtonText = submitButton.textContent;
@@ -926,23 +922,22 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
     submitButton.disabled = true;
     
     try {
-        // Replace with your Formspree endpoint
-        const response = await fetch('https://formspree.io/f/xyzepqwy', {
+        const response = await fetch(form.action, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
+            body: new URLSearchParams({
                 email: emailInput.value,
-                _subject: 'New Newsletter Signup from Blog'
+                _subject: 'New Newsletter Signup'
             })
         });
         
         if (response.ok) {
-            // Show success message
+            // Hide form and show thank you message
             form.style.display = 'none';
-            thankYouMessage.style.display = 'block';
+            formContainer.querySelector('.thank-you-message').style.display = 'block';
             
             // Reset form
             form.reset();
@@ -954,12 +949,6 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
         submitButton.textContent = 'Error - Try Again';
         submitButton.disabled = false;
         console.error('Error:', error);
-        alert('There was an error submitting your form. Please try again later.');
-    } finally {
-        setTimeout(() => {
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-        }, 2000);
     }
 });
     </script>
