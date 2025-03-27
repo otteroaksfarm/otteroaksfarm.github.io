@@ -787,40 +787,40 @@ As we enter our second season as a farm, we embrace the early stages of growth a
     </section>
 
     <script>
-        // Mobile Menu Toggle with Animation - Matches Index Page
-        const burger = document.querySelector('.burger');
-        const navLinks = document.querySelector('.nav-links');
-        const navLinksItems = document.querySelectorAll('.nav-links li');
-        
-        burger.addEventListener('click', function() {
-            // Toggle nav active state
-            navLinks.classList.toggle('active');
-            
-            // Toggle burger icon
-            this.classList.toggle('fa-times');
-            
-            // Animate nav links
-            if (navLinks.classList.contains('active')) {
-                navLinksItems.forEach((item, index) => {
-                    item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                });
-            } else {
-                navLinksItems.forEach(item => {
-                    item.style.animation = '';
-                });
-            }
-        });
+      // Mobile Menu Toggle with Animation - Matches Index Page
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links li');
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                burger.classList.remove('fa-times');
-                navLinksItems.forEach(item => {
-                    item.style.animation = '';
-                });
-            });
+burger.addEventListener('click', function() {
+    // Toggle nav active state
+    navLinks.classList.toggle('active');
+    
+    // Remove the X toggle functionality - just keep the bars icon
+    this.innerHTML = '<i class="fas fa-bars"></i>';
+    
+    // Animate nav links
+    if (navLinks.classList.contains('active')) {
+        navLinksItems.forEach((item, index) => {
+            item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
         });
+    } else {
+        navLinksItems.forEach(item => {
+            item.style.animation = '';
+        });
+    }
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burger.innerHTML = '<i class="fas fa-bars"></i>';
+        navLinksItems.forEach(item => {
+            item.style.animation = '';
+        });
+    });
+});
 
         // Add animation to elements when they come into view
         const animateOnScroll = () => {
