@@ -1,11 +1,12 @@
 /* Font */
 @font-face {
     font-family: 'MyFont';
-    src: url('/fonts/MADEDillan.woff2') format(woff2');
+    src: url('/fonts/MADEDillan.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+
 /* Original colors and styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -14,6 +15,11 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--bg-color);
+}
+
+/* Apply MADEDillan to headings (replaces Playfair Display) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'MyFont', serif;
 }
 
 /* Original navigation styles */
