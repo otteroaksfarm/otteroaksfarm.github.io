@@ -18,12 +18,12 @@
         }
 
         @font-face {
-    font-family: 'MADEDillan';
-    src: url('fonts/MADEDillan.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+            font-family: 'MADEDillan';
+            src: url('fonts/MADEDillan.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -99,11 +99,11 @@
         .logo {
             margin-right: auto;
             z-index: 101;
-            flex-shrink: 0; /* Prevent logo from shrinking */
+            flex-shrink: 0;
         }
 
         .logo img {
-            height: 80px; /* Adjusted from 250px to better fit with navigation */
+            height: 80px;
             width: auto;
             max-width: 100%;
             transition: transform 0.3s ease;
@@ -117,7 +117,7 @@
             display: flex;
             justify-content: flex-end;
             flex-grow: 1;
-            max-width: calc(100% - 300px); /* Prevent links from stretching too far */
+            max-width: calc(100% - 300px);
             overflow: hidden;
         }
 
@@ -200,7 +200,7 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-            color: #fff5f7; /* Changed to match pink background */
+            color: #fff5f7;
         }
 
         .hero p {
@@ -349,8 +349,7 @@
             text-align: center;
             color: var(--light-text);
             margin-bottom: 0;
-            padding-bottom: 60px; /* Keep bottom padding */
-}
+            padding-bottom: 60px;
         }
 
         .newsletter h2 {
@@ -395,7 +394,7 @@
             margin-top: 15px;
             opacity: 0.8;
         }
-      
+
         .thank-you-message {
             text-align: center;
             padding: 20px;
@@ -426,7 +425,7 @@
             color: var(--light-text);
             padding: 50px 5% 30px;
             text-align: center;
-            margin-top: 0; /* Ensure no extra margin */
+            margin-top: 0;
         }
 
         .footer-content {
@@ -438,7 +437,7 @@
         }
 
         .footer-logo img {
-            height: 450px; 
+            height: 450px;
             width: auto;
             margin-bottom: 25px;
         }
@@ -471,7 +470,7 @@
         }
 
         .social-links a {
-            color: var(--primary-color); /* Updated to match header green */
+            color: var(--primary-color);
             font-size: 1.8rem;
             transition: all 0.3s;
         }
@@ -492,19 +491,19 @@
             .hero h1 {
                 font-size: 3rem;
             }
-            
+
             .page-section h2 {
                 font-size: 2.2rem;
             }
-            
+
             .contact-info > div {
                 min-width: 250px;
             }
-            
+
             .logo img {
                 height: 70px;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 200px);
             }
@@ -512,9 +511,9 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 80px; /* Adjusted for mobile header */
+                padding-top: 80px;
             }
-            
+
             .container {
                 padding: 0 15px;
             }
@@ -581,14 +580,14 @@
 
             .volunteer-form {
                 padding: 25px 20px;
-                width: 90%; /* Adjusted for mobile */
-                max-width: 90%; /* Adjusted for mobile */
+                width: 90%;
+                max-width: 90%;
             }
-            
+
             .form-group {
                 margin-bottom: 15px;
             }
-            
+
             .form-group input[type="text"],
             .form-group input[type="email"],
             .form-group input[type="tel"],
@@ -598,37 +597,42 @@
             }
 
             .footer-logo img {
-                height: 250px; /* Adjusted for mobile */
+                height: 250px;
             }
-            
-        .newsletter {
-            padding: 40px 15px !important;
-        }
-        .newsletter .container {
-            padding: 0 15px !important;
-        }
-        .newsletter h2 {
-            font-size: 1.8rem !important;
-            margin-bottom: 15px !important;
-        }
-        .newsletter p {
-            font-size: 1rem !important;
-            margin-bottom: 20px !important;
-        }
-        #newsletterEmail {
-            padding: 10px 15px !important;
-            font-size: 0.95rem !important;
-        }
-        .newsletter .btn {
-            padding: 10px 20px !important;
-            font-size: 0.95rem !important;
-            min-width: 120px !important;
-        }
-    }
+
+            .newsletter {
+                padding: 40px 15px !important;
+            }
+
+            .newsletter .container {
+                padding: 0 15px !important;
+            }
+
+            .newsletter h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            .newsletter p {
+                font-size: 1rem !important;
+                margin-bottom: 20px !important;
+            }
+
+            #newsletterEmail {
+                padding: 10px 15px !important;
+                font-size: 0.95rem !important;
+            }
+
+            .newsletter .btn {
+                padding: 10px 20px !important;
+                font-size: 0.95rem !important;
+                min-width: 120px !important;
+            }
+
             .logo img {
                 height: 60px;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 100px);
             }
@@ -636,81 +640,81 @@
 
         @media (max-width: 480px) {
             body {
-                padding-top: 70px; /* Adjusted for smaller mobile header */
+                padding-top: 70px;
             }
-            
+
             .hero {
                 height: 70vh;
                 min-height: 400px;
             }
-            
+
             .hero h1 {
                 font-size: 2rem;
                 margin-bottom: 15px;
             }
-            
+
             .hero p {
                 font-size: 1rem;
                 margin-bottom: 25px;
             }
-            
+
             .page-section h2 {
                 font-size: 1.8rem;
             }
-            
-            .page-content p, 
+
+            .page-content p,
             .page-content li {
                 font-size: 1rem;
             }
-            
+
             .volunteer-form h3,
             .contact-info h3 {
                 font-size: 1.5rem;
             }
-            
+
             .volunteer-form {
                 padding: 20px 15px;
                 margin: 20px auto;
-                width: 95%; /* Further adjusted for small mobile */
-                max-width: 95%; /* Further adjusted for small mobile */
+                width: 95%;
+                max-width: 95%;
             }
-            
+
             .form-group {
                 margin-bottom: 12px;
             }
-            
+
             .form-group label {
                 font-size: 0.95rem;
             }
-            
+
             .btn {
                 min-width: 120px;
                 padding: 8px 16px;
                 font-size: 0.9rem;
             }
-            
+
             .logo img {
                 height: 50px;
             }
-            
+
             .footer-logo img {
-                height: 200px; /* Adjusted for small mobile */
+                height: 200px;
             }
-            
+
             .footer-links {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .nav-links a {
                 font-size: 1.3rem;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 80px);
             }
         }
-        
+
         /* Animation for mobile menu items */
         @keyframes navLinkFade {
             from {
@@ -787,27 +791,27 @@
                     <li>Weeding and farm maintenance</li>
                     <li>Special projects</li>
                 </ul>
-                
+
                 <div class="volunteer-form">
                     <h3>Volunteer Application</h3>
                     <form id="volunteerForm" action="https://formspree.io/f/manebgeg" method="POST">
                         <input type="hidden" name="_subject" value="New Volunteer Application">
-                        
+
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="availability">Availability</label>
                             <select id="availability" name="availability">
@@ -822,12 +826,12 @@
                                 <option value="varies">It varies</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="interests">What are you interested in helping with?</label>
                             <textarea id="interests" name="interests" placeholder="Tell us about your interests and any relevant experience"></textarea>
                         </div>
-                        
+
                         <div class="form-actions">
                             <button type="submit" class="btn">Submit Application</button>
                         </div>
@@ -843,7 +847,7 @@
             <h2>Contact Us</h2>
             <div class="page-content">
                 <p>We'd love to hear from you! Whether you have questions about our produce, want to visit the farm, or are interested in collaborating, please reach out.</p>
-                
+
                 <div class="contact-info">
                     <div>
                         <h3>Visit Us</h3>
@@ -860,32 +864,32 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="volunteer-form" style="margin-top: 40px;">
                     <h3>Send Us a Message</h3>
                     <form id="contactForm" action="https://formspree.io/f/mrbplwpo" method="POST">
                         <input type="hidden" name="_subject" value="New Contact Form Submission">
-                        
+
                         <div class="form-group">
                             <label for="contactName">Name</label>
                             <input type="text" id="contactName" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contactEmail">Email</label>
                             <input type="email" id="contactEmail" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contactSubject">Subject</label>
                             <input type="text" id="contactSubject" name="_subject" placeholder="What's your message about?">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contactMessage">Message</label>
                             <textarea id="contactMessage" name="message" required placeholder="Type your message here..."></textarea>
                         </div>
-                        
+
                         <div class="form-actions">
                             <button type="submit" class="btn">Send Message</button>
                         </div>
@@ -906,36 +910,36 @@
         </div>
     </section>
 
-  <!-- Newsletter Section -->
-<section class="newsletter" style="background: var(--secondary-color); padding: 60px 5%; text-align: center; color: var(--light-text);">
-    <div class="container" style="max-width: 500px; margin: 0 auto;">
-        <h2 style="color: white; margin-bottom: 20px;">Stay in the Know</h2>
-        <p style="margin-bottom: 25px; font-size: 1.1rem;">Sign up with your email address to receive news and updates.</p>
-        
-        <form id="newsletterForm" action="https://formspree.io/f/xyzepqwy" method="POST">
-            <input type="hidden" name="_subject" value="New Newsletter Signup">
-            
-            <div style="margin-bottom: 15px;">
-                <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required 
-                       style="width: 100%; padding: 12px 15px; border: none; border-radius: 25px; font-family: 'Poppins', sans-serif; font-size: 1rem; text-align: center; box-sizing: border-box;">
+    <!-- Newsletter Section -->
+    <section class="newsletter" style="background: var(--secondary-color); padding: 60px 5%; text-align: center; color: var(--light-text);">
+        <div class="container" style="max-width: 500px; margin: 0 auto;">
+            <h2 style="color: white; margin-bottom: 20px;">Stay in the Know</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1rem;">Sign up with your email address to receive news and updates.</p>
+
+            <form id="newsletterForm" action="https://formspree.io/f/xyzepqwy" method="POST">
+                <input type="hidden" name="_subject" value="New Newsletter Signup">
+
+                <div style="margin-bottom: 15px;">
+                    <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required
+                           style="width: 100%; padding: 12px 15px; border: none; border-radius: 25px; font-family: 'Poppins', sans-serif; font-size: 1rem; text-align: center; box-sizing: border-box;">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn" style="background: var(--accent-color); color: var(--text-color); padding: 10px 20px; border-radius: 25px; font-size: 1rem; width: auto; margin: 0 auto; display: block;">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+
+            <div class="thank-you-message" style="display: none; text-align: center; padding: 20px; background-color: rgba(255, 255, 255, 0.2); border-radius: 8px; margin-top: 20px; animation: fadeIn 0.5s ease-in-out;">
+                <h3 style="color: white; margin-bottom: 10px;">Thank you for signing up for our newsletter!</h3>
+                <p style="color: white; opacity: 0.9;"><i>We'll keep you updated with our latest news and offerings.</i></p>
             </div>
-            
-            <div>
-                <button type="submit" class="btn" style="background: var(--accent-color); color: var(--text-color); padding: 10px 20px; border-radius: 25px; font-size: 1rem; width: auto; margin: 0 auto; display: block;">
-                    Sign Up
-                </button>
-            </div>
-        </form>
-        
-        <div class="thank-you-message" style="display: none; text-align: center; padding: 20px; background-color: rgba(255, 255, 255, 0.2); border-radius: 8px; margin-top: 20px; animation: fadeIn 0.5s ease-in-out;">
-            <h3 style="color: white; margin-bottom: 10px;">Thank you for signing up for our newsletter!</h3>
-            <p style="color: white; opacity: 0.9;"><i>We'll keep you updated with our latest news and offerings.</i></p>
+
+            <p style="margin-top: 15px;"><small style="opacity: 0.8; color: white;">We respect your privacy.</small></p>
         </div>
-        
-        <p style="margin-top: 15px;"><small style="opacity: 0.8; color: white;">We respect your privacy.</small></p>
-    </div>
-</section>
-    
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -957,26 +961,17 @@
             <p class="copyright">© 2022-2025 Otter Oaks Farm, LLC. All rights reserved.</p>
         </div>
     </footer>
-        </section>
 
     <script>
         // Mobile Menu Toggle with Animation
         const burger = document.querySelector('.burger');
         const navLinks = document.querySelector('.nav-links');
         const navLinksItems = document.querySelectorAll('.nav-links li');
-        
+
         burger.addEventListener('click', function() {
-            // Toggle nav active state
             navLinks.classList.toggle('active');
-            
-            // Toggle burger icon without adding X
-            if (navLinks.classList.contains('active')) {
-                this.innerHTML = '<i class="fas fa-bars"></i>';
-            } else {
-                this.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-            
-            // Animate nav links
+            this.innerHTML = '<i class="fas fa-bars"></i>';
+
             if (navLinks.classList.contains('active')) {
                 navLinksItems.forEach((item, index) => {
                     item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
@@ -1003,8 +998,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
+
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     burger.innerHTML = '<i class="fas fa-bars"></i>';
@@ -1012,7 +1006,7 @@
                         item.style.animation = '';
                     });
                 }
-                
+
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -1026,13 +1020,12 @@
                 e.preventDefault();
                 const submitButton = form.querySelector('button[type="submit"]');
                 const originalButtonText = submitButton.textContent;
-                
-                // Show loading state
+
                 submitButton.disabled = true;
                 submitButton.textContent = 'Sending...';
-                
+
                 const formData = new FormData(form);
-                
+
                 fetch(form.action, {
                     method: 'POST',
                     body: formData,
@@ -1053,97 +1046,81 @@
                     console.error('Error:', error);
                 })
                 .finally(() => {
-                    // Reset button state
                     submitButton.disabled = false;
                     submitButton.textContent = originalButtonText;
                 });
             });
         }
-        
 
         // Initialize form handlers (excluding newsletter form)
-handleFormSubmit('volunteerForm', 'Thank you for your volunteer application! We will contact you soon.');
-handleFormSubmit('contactForm', 'Thank you for your message! We will get back to you soon.');
-        
+        handleFormSubmit('volunteerForm', 'Thank you for your volunteer application! We will contact you soon.');
+        handleFormSubmit('contactForm', 'Thank you for your message! We will get back to you soon.');
+
         // Add animation to elements when they come into view
         const animateOnScroll = () => {
             const sections = document.querySelectorAll('.page-section, .newsletter, .hero');
-            
+
             sections.forEach(section => {
                 const sectionTop = section.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (sectionTop < windowHeight * 0.75) {
                     section.style.opacity = '1';
                     section.style.transform = 'translateY(0)';
                 }
             });
         };
-        
+
         // Set initial styles for animation
         document.querySelectorAll('.page-section, .newsletter').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         });
-        
-        // Run once on page load
-        animateOnScroll();
-        
-        // Run on scroll
-        window.addEventListener('scroll', animateOnScroll);
-       
-        // Newsletter Form Submission - FINAL WORKING VERSION
-document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-    // Completely prevent default form behavior
-    e.preventDefault();
-    
-    const form = e.target;
-    const formContainer = form.closest('.container');
-    const submitButton = form.querySelector('button[type="submit"]');
-    const emailInput = document.getElementById('newsletterEmail');
-    
-    // Show loading state
-    const originalButtonText = submitButton.textContent;
-    submitButton.textContent = 'Sending...';
-    submitButton.disabled = true;
-    
-    try {
-        // Replace with your actual Formspree endpoint
-        const formspreeEndpoint = 'https://formspree.io/f/xyzepqwy';
-        
-        const response = await fetch(formspreeEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Accept': 'application/json'
-            },
-            body: new URLSearchParams({
-                email: emailInput.value,
-                _subject: 'New Newsletter Signup'
-            })
-        });
-        
-        if (response.ok) {
-            // Hide form and show thank you message
-            form.style.display = 'none';
-            formContainer.querySelector('.thank-you-message').style.display = 'block';
-            
-            // Reset form
-            form.reset();
-        } else {
-            throw new Error('Form submission failed');
-        }
-    } catch (error) {
-        // Show error message
-        submitButton.textContent = 'Error - Try Again';
-        submitButton.disabled = false;
-        console.error('Error:', error);
-    }
-});
 
-// Remove the handleFormSubmit call for the newsletter form
-// (Keep the other form handlers for volunteer and contact forms)
-</script>
+        animateOnScroll();
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Newsletter Form Submission
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formContainer = form.closest('.container');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const emailInput = document.getElementById('newsletterEmail');
+
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            try {
+                const formspreeEndpoint = 'https://formspree.io/f/xyzepqwy';
+
+                const response = await fetch(formspreeEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json'
+                    },
+                    body: new URLSearchParams({
+                        email: emailInput.value,
+                        _subject: 'New Newsletter Signup'
+                    })
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    formContainer.querySelector('.thank-you-message').style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                submitButton.textContent = 'Error - Try Again';
+                submitButton.disabled = false;
+                console.error('Error:', error);
+            }
+        });
+    </script>
 </body>
 </html>
