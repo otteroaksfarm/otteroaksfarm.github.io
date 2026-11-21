@@ -474,7 +474,6 @@
                 font-size: 2.5rem;
             }
 
-            /* Carousel: shorter on tablets */
             .post-carousel {
                 aspect-ratio: 4 / 3;
                 min-height: 320px;
@@ -560,7 +559,6 @@
                 font-size: 0.8rem;
             }
 
-            /* Carousel: slightly shorter on phones */
             .post-carousel {
                 aspect-ratio: 4 / 3;
                 min-height: 260px;
@@ -633,7 +631,6 @@
                 font-size: 1.3rem;
             }
 
-            /* Carousel: compact on small phones */
             .post-carousel {
                 aspect-ratio: 3 / 2;
                 min-height: 200px;
@@ -651,13 +648,15 @@
                 padding: 6px 10px;
             }
 
+            /* Option A: smaller dots + tighter spacing on small phones */
             .carousel-nav {
                 bottom: 10px;
+                gap: 6px;
             }
 
             .carousel-dot {
-                width: 10px;
-                height: 10px;
+                width: 8px;
+                height: 8px;
             }
         }
 
@@ -753,6 +752,12 @@
                     <div class="carousel-dot" onclick="goToSlide('carousel1', 2)"></div>
                     <div class="carousel-dot" onclick="goToSlide('carousel1', 3)"></div>
                     <div class="carousel-dot" onclick="goToSlide('carousel1', 4)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 5)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 6)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 7)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 8)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 9)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel1', 10)"></div>
                 </div>
             </div>
             <div class="post-content">
@@ -761,7 +766,7 @@
                     <span class="post-category">Seasonal Updates</span>
                 </div>
                 <h2 class="post-title">A Moment To Reflect</h2>
-                <p class="post-excerpt">2026 has been full of change. We started farming full time on our new Woodstock farm! There have been many challenges that come with moving to a new location and learning the land, but this year marked a significant accomplishment of being able to sell the majority of our produce to a food pantry in Washington Park through the <a href="https://www.chicagosfoodbank.org/locations/">Greater Chicago Food Depository</a>. Working directly with communities in large-scale amounts of produce has always been a goal of ours. It was truly fulfilling to communicate with food pantry operators who could help us meet their needs through our produce. This experience provided a deep sense of usefulness and fulfillment.</p>
+                <p class="post-excerpt">2026 has been full of change. We started farming full time on our new Woodstock farm! There have been many challenges that come with moving to a new location and learning the land, but this year marked a significant accomplishment of being able to sell the majority of our produce to a food pantry in Washington Park through the <a href="https://www.chicagofoodbank.org/locations/">Greater Chicago Food Depository</a>. Working directly with communities in large-scale amounts of produce has always been a goal of ours. It was truly fulfilling to communicate with food pantry operators who could help us meet their needs through our produce. This experience provided a deep sense of usefulness and fulfillment.</p>
                 <p>This is our first year overwintering produce and we are testing out the LowCat hoops from <a href="https://neversinktools.com/">Neversink Tools</a> paired with white greenhouse film. Season extension has been high up on our to-do list and now we are experiencing a much warmer autumn than normal, but the real test will be during the frost. Brassicas, cutting greens, and carrots are planted for our first year trial.</p>
             </div>
         </article>
@@ -772,6 +777,9 @@
                 <div class="carousel-container" id="carousel2">
                     <div class="carousel-slide">
                         <img src="https://i.postimg.cc/SKXYTGM0/2023-july-farm.jpg" alt="Otter Oaks Farm">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://i.postimg.cc/BQ1bHvHp/IMG-9860.jpg" alt="Otter Oaks Farm">
                     </div>
                     <div class="carousel-slide">
                         <img src="https://i.postimg.cc/2Sy1yxTq/radish-leaves.jpg" alt="Otter Oaks Farm">
@@ -812,6 +820,13 @@
                     <div class="carousel-dot" onclick="goToSlide('carousel2', 2)"></div>
                     <div class="carousel-dot" onclick="goToSlide('carousel2', 3)"></div>
                     <div class="carousel-dot" onclick="goToSlide('carousel2', 4)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 5)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 6)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 7)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 8)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 9)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 10)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 11)"></div>
                 </div>
             </div>
             <div class="post-content">
@@ -1049,7 +1064,7 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
         }
     } catch (error) {
         submitButton.textContent = 'Error - Try Again';
-        submitButton.disabled = false;
+        submitButton.disabled = true;
         console.error('Error:', error);
     }
 });
