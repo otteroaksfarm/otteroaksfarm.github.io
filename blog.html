@@ -84,7 +84,7 @@
             box-sizing: border-box;
         }
 
-        /* Navigation - Matches Index Page */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -170,7 +170,7 @@
             z-index: 101;
         }
 
-        /* Blog Header - Hero style with background image and shadowed text */
+        /* Blog Header */
         .blog-header {
             position: relative;
             display: flex;
@@ -234,10 +234,13 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
+        /* Carousel — aspect-ratio based so it scales on all screens */
         .post-carousel {
             position: relative;
             width: 100%;
-            height: 400px;
+            aspect-ratio: 16 / 9;
+            min-height: 420px;
+            max-height: 620px;
             overflow: hidden;
         }
 
@@ -257,6 +260,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .carousel-arrow {
@@ -271,6 +275,11 @@
             border-radius: 5px;
             z-index: 10;
             user-select: none;
+            transition: background 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0,0,0,0.75);
         }
 
         .carousel-arrow.prev {
@@ -326,7 +335,7 @@
             line-height: 1.7;
         }
 
-        /* Updated Newsletter Styles */
+        /* Newsletter */
         .newsletter-form {
             display: flex;
             flex-direction: column;
@@ -335,11 +344,6 @@
             margin: 0 auto;
             gap: 15px;
             width: 100%;
-        }
-
-        .newsletter-form .form-group {
-            width: 100%;
-            margin-bottom: 0;
         }
 
         .newsletter-form input[type="email"] {
@@ -351,11 +355,6 @@
             font-size: 1rem;
             box-sizing: border-box;
             height: 50px;
-        }
-
-        .newsletter-form .form-actions {
-            width: 100%;
-            text-align: center;
         }
 
         .newsletter-form .btn {
@@ -390,7 +389,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Footer - Matches Index Page */
+        /* Footer */
         footer {
             background: var(--secondary-color);
             color: var(--light-text);
@@ -457,7 +456,7 @@
             opacity: 0.8;
         }
 
-        /* Responsive Adjustments */
+        /* Responsive */
         @media (max-width: 1024px) {
             .blog-posts {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -473,6 +472,13 @@
 
             .blog-header h1 {
                 font-size: 2.5rem;
+            }
+
+            /* Carousel: shorter on tablets */
+            .post-carousel {
+                aspect-ratio: 4 / 3;
+                min-height: 320px;
+                max-height: 460px;
             }
         }
 
@@ -554,8 +560,11 @@
                 font-size: 0.8rem;
             }
 
+            /* Carousel: slightly shorter on phones */
             .post-carousel {
-                height: 300px;
+                aspect-ratio: 4 / 3;
+                min-height: 260px;
+                max-height: 380px;
             }
 
             .post-title {
@@ -624,16 +633,34 @@
                 font-size: 1.3rem;
             }
 
+            /* Carousel: compact on small phones */
             .post-carousel {
-                height: 220px;
+                aspect-ratio: 3 / 2;
+                min-height: 200px;
+                max-height: 300px;
             }
 
             .nav-container {
                 max-width: calc(100% - 80px);
             }
+
+            .carousel-arrow {
+                width: 22px;
+                height: 22px;
+                font-size: 0.7rem;
+                padding: 6px 10px;
+            }
+
+            .carousel-nav {
+                bottom: 10px;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
         }
 
-        /* Animation for mobile menu items */
         @keyframes navLinkFade {
             from {
                 opacity: 0;
@@ -647,7 +674,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation - Matches Index Page -->
+    <!-- Navigation -->
     <nav>
         <div class="logo">
             <a href="/">
@@ -669,7 +696,7 @@
         </div>
     </nav>
 
-    <!-- Blog Header - Hero style with background image -->
+    <!-- Blog Header -->
     <div class="blog-header">
         <div class="container">
             <h1>Farm Blog</h1>
@@ -734,7 +761,7 @@
                     <span class="post-category">Seasonal Updates</span>
                 </div>
                 <h2 class="post-title">A Moment To Reflect</h2>
-                <p class="post-excerpt">2026 has been full of change. We started farming full time on our new Woodstock farm! There have been many challenges that come with moving to a new location and learning the land, but this year marked a significant accomplishment of being able to sell the majority of our produce to a food pantry in Washington Park through the <a href="https://www.chicagosfoodbank.org/locations/">Greater Chicago Food Depository</a>. Working directly with communities in large-scale amounts of produce has always been a goal of ours. It was truly fulfilling to communicate with food pantry operators who could help us meet their needs through our produce. This experience provided a deep sense of usefulness and fulfillment.</p> 
+                <p class="post-excerpt">2026 has been full of change. We started farming full time on our new Woodstock farm! There have been many challenges that come with moving to a new location and learning the land, but this year marked a significant accomplishment of being able to sell the majority of our produce to a food pantry in Washington Park through the <a href="https://www.chicagosfoodbank.org/locations/">Greater Chicago Food Depository</a>. Working directly with communities in large-scale amounts of produce has always been a goal of ours. It was truly fulfilling to communicate with food pantry operators who could help us meet their needs through our produce. This experience provided a deep sense of usefulness and fulfillment.</p>
                 <p>This is our first year overwintering produce and we are testing out the LowCat hoops from <a href="https://neversinktools.com/">Neversink Tools</a> paired with white greenhouse film. Season extension has been high up on our to-do list and now we are experiencing a much warmer autumn than normal, but the real test will be during the frost. Brassicas, cutting greens, and carrots are planted for our first year trial.</p>
             </div>
         </article>
@@ -742,7 +769,7 @@
         <!-- Blog Post 2 -->
         <article class="blog-post">
             <div class="post-carousel">
-                <div class="carousel-container" id="carousel1">
+                <div class="carousel-container" id="carousel2">
                     <div class="carousel-slide">
                         <img src="https://i.postimg.cc/SKXYTGM0/2023-july-farm.jpg" alt="Otter Oaks Farm">
                     </div>
@@ -780,14 +807,14 @@
                         <img src="https://i.postimg.cc/ydg5823f/squash-transplant.jpg" alt="Otter Oaks Farm">
                     </div>
                 </div>
-                <div class="carousel-arrow prev" onclick="moveSlide('carousel1', -1)">&#10094;</div>
-                <div class="carousel-arrow next" onclick="moveSlide('carousel1', 1)">&#10095;</div>
+                <div class="carousel-arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</div>
+                <div class="carousel-arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</div>
                 <div class="carousel-nav">
-                    <div class="carousel-dot active" onclick="goToSlide('carousel1', 0)"></div>
-                    <div class="carousel-dot" onclick="goToSlide('carousel1', 1)"></div>
-                    <div class="carousel-dot" onclick="goToSlide('carousel1', 2)"></div>
-                    <div class="carousel-dot" onclick="goToSlide('carousel1', 3)"></div>
-                    <div class="carousel-dot" onclick="goToSlide('carousel1', 4)"></div>
+                    <div class="carousel-dot active" onclick="goToSlide('carousel2', 0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 1)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 2)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 3)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel2', 4)"></div>
                 </div>
             </div>
             <div class="post-content">
@@ -808,7 +835,7 @@ We invite you to join us in 2024 as we cultivate more fruits, vegetables, greens
         <!-- Blog Post 1 -->
         <article class="blog-post">
             <div class="post-carousel">
-                <div class="carousel-container" id="carousel2">
+                <div class="carousel-container" id="carousel3">
                     <div class="carousel-slide">
                         <img src="https://i.postimg.cc/Y9kDfjvW/jarvi-soraya.jpg" alt="J+S">
                     </div>
@@ -816,11 +843,11 @@ We invite you to join us in 2024 as we cultivate more fruits, vegetables, greens
                         <img src="https://i.postimg.cc/BQ1bHvHp/IMG-9860.jpg" alt="Otter Oaks Farm">
                     </div>
                 </div>
-                <div class="carousel-arrow prev" onclick="moveSlide('carousel2', -1)">&#10094;</div>
-                <div class="carousel-arrow next" onclick="moveSlide('carousel2', 1)">&#10095;</div>
+                <div class="carousel-arrow prev" onclick="moveSlide('carousel3', -1)">&#10094;</div>
+                <div class="carousel-arrow next" onclick="moveSlide('carousel3', 1)">&#10095;</div>
                 <div class="carousel-nav">
-                    <div class="carousel-dot active" onclick="goToSlide('carousel2', 0)"></div>
-                    <div class="carousel-dot" onclick="goToSlide('carousel2', 1)"></div>
+                    <div class="carousel-dot active" onclick="goToSlide('carousel3', 0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide('carousel3', 1)"></div>
                 </div>
             </div>
             <div class="post-content">
@@ -870,7 +897,7 @@ As we enter our second season as a farm, we embrace the early stages of growth a
     </div>
 </section>
 
-    <!-- Footer - Matches Index Page -->
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -893,19 +920,15 @@ As we enter our second season as a farm, we embrace the early stages of growth a
     </footer>
 
     <script>
-      // Mobile Menu Toggle with Animation - Matches Index Page
+      // Mobile Menu Toggle with Animation
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 const navLinksItems = document.querySelectorAll('.nav-links li');
 
 burger.addEventListener('click', function() {
-    // Toggle nav active state
     navLinks.classList.toggle('active');
-
-    // Remove the X toggle functionality - just keep the bars icon
     this.innerHTML = '<i class="fas fa-bars"></i>';
 
-    // Animate nav links
     if (navLinks.classList.contains('active')) {
         navLinksItems.forEach((item, index) => {
             item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
@@ -917,7 +940,6 @@ burger.addEventListener('click', function() {
     }
 });
 
-// Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
@@ -928,7 +950,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
-        // Add animation to elements when they come into view
         const animateOnScroll = () => {
             const posts = document.querySelectorAll('.blog-post');
 
@@ -943,49 +964,37 @@ document.querySelectorAll('.nav-links a').forEach(link => {
             });
         };
 
-        // Set initial styles for animation
         document.querySelectorAll('.blog-post').forEach((post, index) => {
             post.style.opacity = '0';
             post.style.transform = 'translateY(20px)';
             post.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
         });
 
-        // Run once on page load
         animateOnScroll();
-
-        // Run on scroll
         window.addEventListener('scroll', animateOnScroll);
 
-        // Carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all carousels
-    const carousels = document.querySelectorAll('.carousel-container');
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.carousel-container');
 
-    carousels.forEach((carousel, index) => {
-        const carouselId = carousel.id;
-        const slides = carousel.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
+            carousels.forEach((carousel, index) => {
+                const carouselId = carousel.id;
+                const slides = carousel.querySelectorAll('.carousel-slide');
+                let currentSlide = 0;
+                const totalSlides = slides.length;
 
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+                updateCarousel(carouselId, 0);
 
-        // Initialize first slide
-        updateCarousel(carouselId, 0);
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateCarousel(carouselId, currentSlide);
+                }, 5000);
+            });
+        });
 
-        // Auto-advance every 5 seconds
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel(carouselId, currentSlide);
-        }, 5000);
-    });
-});
-
-// Move slide function
 function moveSlide(carouselId, direction) {
     const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
     const slides = carousel.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
-
     let currentSlide = parseInt(carousel.dataset.currentSlide) || 0;
     const totalSlides = slides.length;
 
@@ -993,27 +1002,23 @@ function moveSlide(carouselId, direction) {
     updateCarousel(carouselId, currentSlide);
 }
 
-// Go to specific slide
 function goToSlide(carouselId, slideIndex) {
     updateCarousel(carouselId, slideIndex);
 }
 
-// Update carousel display
 function updateCarousel(carouselId, slideIndex) {
     const carousel = document.getElementById(carouselId);
-    const slides = carousel.querySelectorAll('.carousel-slide');
+    if (!carousel) return;
     const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
 
-    // Update slide position
     carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
     carousel.dataset.currentSlide = slideIndex;
 
-    // Update dots
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === slideIndex % dots.length);
     });
 }
-        // Newsletter Form Submission - Matches Index Page
+
 document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -1022,8 +1027,6 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
     const submitButton = form.querySelector('button[type="submit"]');
     const emailInput = document.getElementById('newsletterEmail');
 
-    // Show loading state
-    const originalButtonText = submitButton.textContent;
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
 
@@ -1041,17 +1044,13 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
         });
 
         if (response.ok) {
-            // Hide form and show thank you message
             form.style.display = 'none';
             formContainer.querySelector('.thank-you-message').style.display = 'block';
-
-            // Reset form
             form.reset();
         } else {
             throw new Error('Form submission failed');
         }
     } catch (error) {
-        // Show error message
         submitButton.textContent = 'Error - Try Again';
         submitButton.disabled = false;
         console.error('Error:', error);
