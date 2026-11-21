@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otter Oaks Farm Blog</title>
+    <title>Farm Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="icon" href="./images/favicon.ico" sizes="any">
-    <link rel="manifest" href="./images/site.webmanifest">
     <style>
         /* Global Styles */
         :root {
@@ -38,7 +37,7 @@
             line-height: 1.6;
             background-color: var(--bg-color);
             overflow-x: hidden;
-            padding-top: 100px; /* Added for fixed header */
+            padding-top: 100px;
         }
 
         h1, h2, h3, h4 {
@@ -104,11 +103,11 @@
         .logo {
             margin-right: auto;
             z-index: 101;
-            flex-shrink: 0; /* Prevent logo from shrinking */
+            flex-shrink: 0;
         }
 
         .logo img {
-            height: 80px; /* Adjusted from 250px to better fit with navigation */
+            height: 80px;
             width: auto;
             max-width: 100%;
             transition: transform 0.3s ease;
@@ -122,7 +121,7 @@
             display: flex;
             justify-content: flex-end;
             flex-grow: 1;
-            max-width: calc(100% - 300px); /* Prevent links from stretching too far */
+            max-width: calc(100% - 300px);
             overflow: hidden;
         }
 
@@ -171,195 +170,202 @@
             z-index: 101;
         }
 
-        /* Blog Header Styles */
-.blog-header {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    margin-bottom: 40px;
-}
+        /* Blog Header - Hero style with background image and shadowed text */
+        .blog-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 50vh;
+            min-height: 350px;
+            background: url('https://i.postimg.cc/kMhFBg7K/IMG-7103.jpg') no-repeat center/cover;
+            color: var(--light-text);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
 
-.blog-header .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+        .blog-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
 
-.blog-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: var(--light-text);
-}
+        .blog-header .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.blog-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
+        .blog-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #fff5f7;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
 
-@media (max-width: 768px) {
-    .blog-header {
-        padding: 40px 15px;
-    }
-    
-    .blog-header h1 {
-        font-size: 2rem;
-    }
-    
-    .blog-header p {
-        font-size: 1rem;
-    }
-}
+        .blog-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
 
         /* Blog Section Styles */
-.blog-posts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+        .blog-posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-.blog-post {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+        .blog-post {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-.post-carousel {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
+        .post-carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
 
-.carousel-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease;
-}
+        .carousel-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
 
-.carousel-slide {
-    min-width: 100%;
-    height: 100%;
-}
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
 
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 2rem;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 10;
-    user-select: none;
-}
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 2rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 10;
+            user-select: none;
+        }
 
-.carousel-arrow.prev {
-    left: 15px;
-}
+        .carousel-arrow.prev {
+            left: 15px;
+        }
 
-.carousel-arrow.next {
-    right: 15px;
-}
+        .carousel-arrow.next {
+            right: 15px;
+        }
 
-.carousel-nav {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
 
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    cursor: pointer;
-}
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
 
-.carousel-dot.active {
-    background: white;
-}
+        .carousel-dot.active {
+            background: white;
+        }
 
-.post-content {
-    padding: 25px;
-}
+        .post-content {
+            padding: 25px;
+        }
 
-.post-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-    font-size: 0.9rem;
-}
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
 
-.post-title {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
+        .post-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
 
-.post-excerpt {
-    margin-bottom: 20px;
-    line-height: 1.7;
-}
-
+        .post-excerpt {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
 
         /* Updated Newsletter Styles */
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
-    gap: 15px;
-    width: 100%;
-}
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 15px;
+            width: 100%;
+        }
 
-.newsletter-form .form-group {
-    width: 100%;
-    margin-bottom: 0;
-}
+        .newsletter-form .form-group {
+            width: 100%;
+            margin-bottom: 0;
+        }
 
-.newsletter-form input[type="email"] {
-    width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    box-sizing: border-box;
-    height: 50px;
-}
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            height: 50px;
+        }
 
-.newsletter-form .form-actions {
-    width: 100%;
-    text-align: center;
-}
+        .newsletter-form .form-actions {
+            width: 100%;
+            text-align: center;
+        }
 
-.newsletter-form .btn {
-    width: 100%;
-    max-width: 200px;
-    padding: 15px;
-    border-radius: 30px;
-    font-size: 1rem;
-}
+        .newsletter-form .btn {
+            width: 100%;
+            max-width: 200px;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
         .thank-you-message {
             text-align: center;
             padding: 20px;
@@ -456,21 +462,25 @@
             .blog-posts {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-            
+
             .logo img {
                 height: 70px;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 200px);
+            }
+
+            .blog-header h1 {
+                font-size: 2.5rem;
             }
         }
 
         @media (max-width: 768px) {
             body {
-                padding-top: 80px; /* Adjusted for mobile header */
+                padding-top: 80px;
             }
-            
+
             .container {
                 padding: 0 15px;
             }
@@ -480,11 +490,17 @@
             }
 
             .blog-header {
-                padding: 30px 0 20px;
+                height: 40vh;
+                min-height: 280px;
+                margin-bottom: 30px;
             }
 
             .blog-header h1 {
                 font-size: 2.2rem;
+            }
+
+            .blog-header p {
+                font-size: 1rem;
             }
 
             .burger {
@@ -531,85 +547,92 @@
             .footer-logo img {
                 width: 250px;
             }
-            
+
             .carousel-arrow {
                 width: 25px;
                 height: 25px;
                 font-size: 0.8rem;
             }
+
             .post-carousel {
                 height: 300px;
             }
-    
+
             .post-title {
                 font-size: 1.5rem;
-    }
-            
+            }
+
             .logo img {
                 height: 60px;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 100px);
             }
+
             .newsletter-form {
-        gap: 10px;
-    }
-    
-    .newsletter-form input[type="email"] {
-        padding: 12px 15px;
-        height: 45px;
-    }
-    
-    .newsletter-form .btn {
-        padding: 12px;
-        max-width: 100%;
-    }
-}
+                gap: 10px;
+            }
+
+            .newsletter-form input[type="email"] {
+                padding: 12px 15px;
+                height: 45px;
+            }
+
+            .newsletter-form .btn {
+                padding: 12px;
+                max-width: 100%;
+            }
+        }
 
         @media (max-width: 480px) {
             body {
-                padding-top: 70px; /* Adjusted for smaller mobile header */
+                padding-top: 70px;
             }
-            
+
+            .blog-header {
+                height: 35vh;
+                min-height: 220px;
+            }
+
             .blog-header h1 {
                 font-size: 1.8rem;
             }
-            
+
             .blog-header p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
-            
+
             .post-title {
                 font-size: 1.3rem;
             }
-            
+
             .logo img {
                 height: 50px;
             }
-            
+
             .footer-logo img {
                 width: 200px;
             }
-            
+
             .footer-links {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .nav-links a {
                 font-size: 1.3rem;
             }
-            
+
             .post-carousel {
                 height: 220px;
             }
-            
+
             .nav-container {
                 max-width: calc(100% - 80px);
             }
         }
-        
+
         /* Animation for mobile menu items */
         @keyframes navLinkFade {
             from {
@@ -646,7 +669,7 @@
         </div>
     </nav>
 
-    <!-- Blog Header -->
+    <!-- Blog Header - Hero style with background image -->
     <div class="blog-header">
         <div class="container">
             <h1>Otter Oaks Farm Blog</h1>
@@ -719,7 +742,7 @@
 For two years, we cultivated an eighth-acre plot at the Legends Farm site alongside other farm businesses. In 2024, we will expand onto two additional plots, enhancing our impact and providing more vegetables for our CSA members, local food banks, and WIC stores in our community.
 
 We invite you to join us in 2024 as we cultivate more fruits, vegetables, greens, melons, and herbs, sharing our healthy, fresh produce with the community. Visit our shop to learn more!</p>
-                
+
             </div>
         </article>
 
@@ -747,12 +770,12 @@ We invite you to join us in 2024 as we cultivate more fruits, vegetables, greens
                     <span class="post-category">Seasonal Updates</span>
                 </div>
                 <h2 class="post-title">Growth and Rewards: Embracing The Beginnings</h2>
-                <p class="post-excerpt">Harvest time is an exciting and magical experience, but the start of every growing season holds its own rewards. Although there's a lot of pressure to get our farm ready and ensure a bountiful harvest for our CSA members, there's also immense fulfillment in cultivating our grow beds with nutrient-rich soil and compost. 
+                <p class="post-excerpt">Harvest time is an exciting and magical experience, but the start of every growing season holds its own rewards. Although there's a lot of pressure to get our farm ready and ensure a bountiful harvest for our CSA members, there's also immense fulfillment in cultivating our grow beds with nutrient-rich soil and compost.
 
 Watching seedlings emerge from the ground and witnessing young plants grow together creates a thrilling sense of anticipation for the upcoming season. Despite challenges, both the beginning and harvest periods offer their unique joys in nurturing nature's bounty.
 
 As we enter our second season as a farm, we embrace the early stages of growth and appreciate the journey ahead. We are young farmers nurturing young seedlings, cherishing each step in our evolution. The fruits of our greatest labors lie before us, and we eagerly anticipate their arrival while enjoying this foundational period for both ourselves and our crops.</p>
-                
+
             </div>
         </article>
     </div>
@@ -763,31 +786,31 @@ As we enter our second season as a farm, we embrace the early stages of growth a
     <div class="container" style="max-width: 500px; margin: 0 auto;">
         <h2 style="color: white; margin-bottom: 20px;">Stay in the Know</h2>
         <p style="margin-bottom: 25px; font-size: 1.1rem;">Sign up with your email address to receive news and updates.</p>
-        
+
         <form id="newsletterForm" action="https://formspree.io/f/xyzepqwy" method="POST">
             <input type="hidden" name="_subject" value="New Newsletter Signup">
-            
+
             <div style="margin-bottom: 15px;">
-                <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required 
+                <input type="email" id="newsletterEmail" name="email" placeholder="Email Address" required
                        style="width: 100%; padding: 12px 15px; border: none; border-radius: 25px; font-family: 'Poppins', sans-serif; font-size: 1rem; text-align: center; box-sizing: border-box;">
             </div>
-            
+
             <div>
                 <button type="submit" class="btn" style="background: var(--accent-color); color: var(--text-color); padding: 10px 20px; border-radius: 25px; font-size: 1rem; width: auto; margin: 0 auto; display: block;">
                     Sign Up
                 </button>
             </div>
         </form>
-        
+
         <div class="thank-you-message" style="display: none; text-align: center; padding: 20px; background-color: rgba(255, 255, 255, 0.2); border-radius: 8px; margin-top: 20px; animation: fadeIn 0.5s ease-in-out;">
             <h3 style="color: white; margin-bottom: 10px;">Thank you for signing up for our newsletter!</h3>
             <p style="color: white; opacity: 0.9;"><i>We'll keep you updated with our latest news and offerings.</i></p>
         </div>
-        
+
         <p style="margin-top: 15px;"><small style="opacity: 0.8; color: white;">We respect your privacy.</small></p>
     </div>
 </section>
-        
+
     <!-- Footer - Matches Index Page -->
     <footer>
         <div class="footer-content">
@@ -819,10 +842,10 @@ const navLinksItems = document.querySelectorAll('.nav-links li');
 burger.addEventListener('click', function() {
     // Toggle nav active state
     navLinks.classList.toggle('active');
-    
+
     // Remove the X toggle functionality - just keep the bars icon
     this.innerHTML = '<i class="fas fa-bars"></i>';
-    
+
     // Animate nav links
     if (navLinks.classList.contains('active')) {
         navLinksItems.forEach((item, index) => {
@@ -849,47 +872,47 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         // Add animation to elements when they come into view
         const animateOnScroll = () => {
             const posts = document.querySelectorAll('.blog-post');
-            
+
             posts.forEach((post, index) => {
                 const postTop = post.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
-                
+
                 if (postTop < windowHeight * 0.75) {
                     post.style.opacity = '1';
                     post.style.transform = 'translateY(0)';
                 }
             });
         };
-        
+
         // Set initial styles for animation
         document.querySelectorAll('.blog-post').forEach((post, index) => {
             post.style.opacity = '0';
             post.style.transform = 'translateY(20px)';
             post.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
         });
-        
+
         // Run once on page load
         animateOnScroll();
-        
+
         // Run on scroll
         window.addEventListener('scroll', animateOnScroll);
-        
+
         // Carousel functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all carousels
     const carousels = document.querySelectorAll('.carousel-container');
-    
+
     carousels.forEach((carousel, index) => {
         const carouselId = carousel.id;
         const slides = carousel.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
-        
+
         let currentSlide = 0;
         const totalSlides = slides.length;
-        
+
         // Initialize first slide
         updateCarousel(carouselId, 0);
-        
+
         // Auto-advance every 5 seconds
         setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
@@ -903,10 +926,10 @@ function moveSlide(carouselId, direction) {
     const carousel = document.getElementById(carouselId);
     const slides = carousel.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
-    
+
     let currentSlide = parseInt(carousel.dataset.currentSlide) || 0;
     const totalSlides = slides.length;
-    
+
     currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
     updateCarousel(carouselId, currentSlide);
 }
@@ -921,11 +944,11 @@ function updateCarousel(carouselId, slideIndex) {
     const carousel = document.getElementById(carouselId);
     const slides = carousel.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll(`#${carouselId} ~ .carousel-nav .carousel-dot`);
-    
+
     // Update slide position
     carousel.style.transform = `translateX(-${slideIndex * 100}%)`;
     carousel.dataset.currentSlide = slideIndex;
-    
+
     // Update dots
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === slideIndex % dots.length);
@@ -934,17 +957,17 @@ function updateCarousel(carouselId, slideIndex) {
         // Newsletter Form Submission - Matches Index Page
 document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    
+
     const form = e.target;
     const formContainer = form.closest('.container');
     const submitButton = form.querySelector('button[type="submit"]');
     const emailInput = document.getElementById('newsletterEmail');
-    
+
     // Show loading state
     const originalButtonText = submitButton.textContent;
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
-    
+
     try {
         const response = await fetch(form.action, {
             method: 'POST',
@@ -957,12 +980,12 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
                 _subject: 'New Newsletter Signup'
             })
         });
-        
+
         if (response.ok) {
             // Hide form and show thank you message
             form.style.display = 'none';
             formContainer.querySelector('.thank-you-message').style.display = 'block';
-            
+
             // Reset form
             form.reset();
         } else {
